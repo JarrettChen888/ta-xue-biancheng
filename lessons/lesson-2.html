@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第 2 课 · 给网页换个样子｜她学编程</title>
+  <meta name="description" content="用 CSS 给网页换样子：背景换暖色、标题换颜色、正文放到中间，顺手认识选择器、属性、值，以及冒号和分号的用法。">
+  <meta name="theme-color" content="#faf5ee">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script>
+    /* 在页面画出之前先应用阅读设置，避免闪一下 */
+    (function () {
+      try {
+        var s = JSON.parse(localStorage.getItem("hx.settings") || "{}");
+        var root = document.documentElement;
+        var sizes = [18, 20, 22, 25];
+        root.style.fontSize = (sizes[s.font] || 20) + "px";
+        root.setAttribute("data-theme", s.theme || (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+        if (s.motion) root.setAttribute("data-motion", s.motion);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body class="lesson-page" data-lesson="2">
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">她</span>
+        <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="../index.html#course" aria-current="true">课程</a>
+        <a href="../start.html">怎么学</a>
+        <a href="../help.html">帮助与无障碍</a>
+      </nav>
+      <div class="ctrl-group" role="group" aria-label="阅读设置">
+        <button class="ctrl" type="button" data-font="down" aria-label="A− 缩小字号" title="缩小字号">A−</button>
+        <button class="ctrl" type="button" data-font="up" aria-label="A＋ 放大字号" title="放大字号">A＋</button>
+        <button class="ctrl" type="button" data-theme-toggle aria-label="☾ 切换深色模式" aria-pressed="false" title="深色模式">☾</button>
+        <button class="ctrl" type="button" data-motion-toggle aria-label="✳ 减少动画效果" aria-pressed="false" title="减少动画">✳</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="course-progress" role="progressbar" aria-label="课程学习进度" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0">
+    <span class="course-progress-bar"></span>
+  </div>
+
+  <main id="main" class="wrap reading">
+    <nav class="crumbs" aria-label="当前位置">
+      <a href="../index.html">首页</a> ／ 第 2 课
+    </nav>
+
+    <header class="lesson-head">
+      <p class="label">第 2 课 · 约 20 分钟</p>
+      <h1>给网页换个样子</h1>
+      <p class="lede">只学一件事：用几行样式，换颜色、换字号、换位置。</p>
+      <ul class="lesson-meta">
+        <li>难度：零基础</li>
+        <li>需要准备：一台能上网的电脑，和一点点好奇</li>
+        <li>可以随时停下，进度会自动记住</li>
+      </ul>
+      <div class="goal-box" id="lesson-goal">
+        <h2>学完这一课，你会</h2>
+        <ul>
+          <li>知道 CSS 只管样子，不管网页上写了哪些字</li>
+          <li>会照样子写一行 <code>选择器 { 属性: 值; }</code></li>
+          <li>把背景换成暖色、标题换颜色、正文放到中间</li>
+        </ul>
+      </div>
+      <button class="btn-speak" type="button" data-speak="lesson-intro">🔊 读给我听</button>
+    </header>
+
+    <section class="story" id="lesson-intro">
+      <p class="story-open">快过年的时候，你把餐桌上的旧桌布收起来，换上一块暖红色的布，再摆两个橘色的靠垫。那天坐下来吃饭，家人都说屋里亮堂了。</p>
+      <p>桌子还是那张桌子，菜还是那几道菜，可一屋子看着就热闹了。你没买一件新家具，只是换了颜色。</p>
+      <p>网页也是这样。字还是那些字，句子还是那几句；换一换颜色、字号、位置，整页的感觉就不一样了。</p>
+      <p>做这件事的语言叫 CSS。今天只学几件小事：换背景、换颜色、改字号、把字放中间。</p>
+    </section>
+
+    <section class="concepts" aria-label="这一课的知识点">
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">1</span>
+        <h3>样子单独写在一对 style 标签里</h3>
+        <p>网页的内容和样子是分开写的。文字还写在上一课那些标签里，样子单独写在一对 <code>&lt;style&gt;</code> 和 <code>&lt;/style&gt;</code> 之间。</p>
+        <p>为什么不直接写在字旁边？因为想换样子的时候，只改这一块就够了，字一个都不用动。</p>
+        <div class="example"><strong>例子：</strong>颜色、字号全写在 style 里，下面的 h1 和 p 还是原来那几行字，一个字都没改。</div>
+      </article>
+
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">2</span>
+        <h3>一行样式，像填一张小表</h3>
+        <p>每一行样式都是三样东西排好队：先叫谁的名字，再写要改哪一项，最后写改成什么。</p>
+        <p>写法是 <code>选择器 { 属性: 值; }</code>。选择器是叫名字——h1 是大标题，p 是段落，body 是整页。冒号分开属性和值，分号表示这一行说完了。</p>
+        <p>常用的属性有三个：color 管字色，background 管背景，font-size 管字号，字号要写成 32px 这样。颜色可以直接写英文名，比如 black、darkred、orange、linen。</p>
+        <div class="example"><strong>例子：</strong><code>p { color: dimgray; }</code> 的意思是：所有段落，字改成暗灰色。</div>
+      </article>
+
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">3</span>
+        <h3>想让字居中，用 text-align</h3>
+        <p>把字放到中间，用的属性叫 text-align，值写 center。</p>
+        <p>它管的是“这一块里的字怎么摆”。想让标题居中，就写进 h1 里；想让正文居中，就写进 p 里。</p>
+        <div class="example"><strong>例子：</strong><code>h1 { text-align: center; }</code>，标题就跑到中间去了。</div>
+      </article>
+    </section>
+
+    <aside class="tip">一次只改一个值，运行一次。先改颜色，再改字号；哪一行起了作用，你一眼就看得出来。一起改三处，反而不知道是哪一行起的作用。</aside>
+
+    <section class="playground" data-playground="html" aria-label="动手试一试">
+      <div class="pg-head">
+        <p class="pg-title">✍️ 动手区：给这个网页换个暖一点的样子</p>
+        <div class="pg-actions">
+          <button class="btn btn-run" type="button" data-run>▶ 运行看看</button>
+          <button class="btn btn-quiet" type="button" data-reset>恢复原样</button>
+        </div>
+      </div>
+      <label class="sr-only" for="pg-1">代码编辑区</label>
+      <textarea class="pg-editor" id="pg-1" spellcheck="false" rows="14"><style>
+  body {
+    background: ivory;
+    padding: 24px;
+    font-size: 20px;
+  }
+  h1 {
+    color: black;
+    font-size: 32px;
+  }
+  p {
+    color: dimgray;
+  }
+</style>
+<h1>我家的周末</h1>
+<p>星期六的早上，我去公园走一圈。</p>
+<p>回来的路上，买一块豆腐，两根葱。</p></textarea>
+      <div class="pg-output">
+        <p class="pg-output-label">运行结果</p>
+        <iframe class="pg-frame" title="运行结果预览" sandbox="allow-scripts"></iframe>
+        <pre class="pg-console" hidden></pre>
+      </div>
+      <p class="pg-status" role="status"></p>
+    </section>
+
+    <aside class="mistake">
+      如果你写了 <code>text-align: center;</code>，页面却一点没变，别急着怪自己。先看三处：冒号是不是打成了中文的“：”，分号是不是打成了中文的“；”，或者 <code>center</code> 拼成了 <code>centre</code>。电脑只认英文符号，也只认拼对的词；写错了它不吭声，只是把那一行跳过。颜色词也一样，<code>darkred</code> 少一个字母，这一行就白写了。
+    </aside>
+
+    <section class="task" aria-label="小任务">
+      <h3>今天的小任务</h3>
+      <p>把这个网页换成你喜欢的暖色调：背景暖一点，标题换一个颜色，正文放到中间。</p>
+      <ol>
+        <li>找到 <code>background: ivory;</code>，把 ivory 换成 linen 或 mistyrose，点“运行看看”。</li>
+        <li>找到 h1 里的 <code>color: black;</code>，把 black 换成 darkred 或 saddlebrown，再运行。</li>
+        <li>找到 p 的花括号，在里面加一行 <code>text-align: center;</code>，最后运行一次。</li>
+      </ol>
+      <ul class="checklist">
+        <li>背景变成了暖色，标题也换成了我挑的颜色。</li>
+        <li>正文跑到中间了，而且冒号、分号都是英文的。</li>
+      </ul>
+    </section>
+
+    <section class="quizzes" aria-label="小测验">
+      <h2>三道小题，检查一下</h2>
+      <p class="muted">答错没关系，可以换个答案再试，也可以回到上面再看一眼。</p>
+
+      <div class="quiz" data-quiz>
+        <p class="quiz-q"><span class="quiz-no">第 1 题</span>CSS 管的是网页的哪一部分？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" type="button" data-correct="false">网页上有哪些文字、哪几个段落</button>
+          <button class="quiz-opt" type="button" data-correct="true">网页的样子：颜色、字号、位置</button>
+          <button class="quiz-opt" type="button" data-correct="false">点一下按钮以后会发生什么</button>
+        </div>
+        <p class="quiz-feedback" role="status" data-ok="内容是字，样子是装修。CSS 管装修，不管字。" data-no="想一想过年换桌布那次：桌子没变、菜没变，变的是什么？"></p>
+      </div>
+
+      <div class="quiz" data-quiz>
+        <p class="quiz-q"><span class="quiz-no">第 2 题</span>属性（color）和值（red）之间，用哪个符号隔开？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" type="button" data-correct="false">等号 <code>=</code></button>
+          <button class="quiz-opt" type="button" data-correct="true">英文冒号 <code>:</code></button>
+          <button class="quiz-opt" type="button" data-correct="false">中文冒号 <code>：</code></button>
+        </div>
+        <p class="quiz-feedback" role="status" data-ok="冒号分开“改哪一项”和“改成什么”，分号表示这一行说完了。" data-no="回到动手区看一行现成的样式，找到 color 后面那个小符号，看看它是哪一种。"></p>
+      </div>
+
+      <div class="quiz" data-quiz>
+        <p class="quiz-q"><span class="quiz-no">第 3 题</span>想让一段正文居中，应该怎么做？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" type="button" data-correct="true">在 p 的样式里加一行 <code>text-align: center;</code></button>
+          <button class="quiz-opt" type="button" data-correct="false">在每一行字前面多按几个空格，把它挤到中间</button>
+          <button class="quiz-opt" type="button" data-correct="false">把这段字换成 h1 标签，它就会自己居中</button>
+        </div>
+        <p class="quiz-feedback" role="status" data-ok="居中是“样子”，用 text-align: center 管，写在对应的选择器里。" data-no="按空格是看不见的，h1 也只管变大、不管居中。想一想：位置属于内容还是样子？"></p>
+      </div>
+    </section>
+
+    <section class="recap" aria-label="这一课的三句话">
+      <h3>用三句话记住这一课</h3>
+      <ul>
+        <li>CSS 管样子：颜色、字号、位置；样子写在 style 标签里。</li>
+        <li>一行样式是 <code>选择器 { 属性: 值; }</code>，冒号和分号都要用英文的。</li>
+        <li>想让字居中，就在它对应的选择器里写 <code>text-align: center;</code>。</li>
+      </ul>
+    </section>
+
+    <nav class="lesson-nav" aria-label="课程导航">
+      <div class="nav-pair">
+        <a class="btn btn-ghost" href="lesson-1.html">← 上一课</a>
+      </div>
+      <button class="btn btn-primary" type="button" data-complete="2">我学完这一课了</button>
+      <div class="nav-pair">
+        <a class="btn btn-ghost" href="lesson-3.html">下一课 →</a>
+      </div>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html">
+            <span class="brand-mark" aria-hidden="true">她</span>
+            <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
+          </a>
+          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15 分钟，不用背，只要动手改一改。</p>
+        </div>
+        <div class="footer-col">
+          <h3>课程</h3>
+          <ul>
+            <li><a href="../index.html#course">全部 7 课</a></li>
+            <li><a href="../start.html">第一次来，怎么学</a></li>
+            <li><a href="../project.html">结业作品</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>帮助</h3>
+          <ul>
+            <li><a href="../help.html">常见问题</a></li>
+            <li><a href="../help.html#accessibility">无障碍与朗读说明</a></li>
+            <li><a href="../help.html#settings">字号、深色、动画</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>她学编程 · 一个不需要注册、不收集你信息的公益学习站</span>
+        <span>学得慢一点，也没关系。</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/app.js" defer></script>
+</body>
+</html>

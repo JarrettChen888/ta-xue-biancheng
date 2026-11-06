@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第 3 课 · 给信息取个名字：变量｜她学编程</title>
+  <meta name="description" content="用变量给姓名和年龄取个名字存起来，让电脑把存好的信息说给你听，再弄清英文引号的用法。">
+  <meta name="theme-color" content="#faf5ee">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script>
+    /* 在页面画出之前先应用阅读设置，避免闪一下 */
+    (function () {
+      try {
+        var s = JSON.parse(localStorage.getItem("hx.settings") || "{}");
+        var root = document.documentElement;
+        var sizes = [18, 20, 22, 25];
+        root.style.fontSize = (sizes[s.font] || 20) + "px";
+        root.setAttribute("data-theme", s.theme || (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+        if (s.motion) root.setAttribute("data-motion", s.motion);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body class="lesson-page" data-lesson="3">
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">她</span>
+        <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="../index.html#course" aria-current="true">课程</a>
+        <a href="../start.html">怎么学</a>
+        <a href="../help.html">帮助与无障碍</a>
+      </nav>
+      <div class="ctrl-group" role="group" aria-label="阅读设置">
+        <button class="ctrl" type="button" data-font="down" aria-label="A− 缩小字号" title="缩小字号">A−</button>
+        <button class="ctrl" type="button" data-font="up" aria-label="A＋ 放大字号" title="放大字号">A＋</button>
+        <button class="ctrl" type="button" data-theme-toggle aria-label="☾ 切换深色模式" aria-pressed="false" title="深色模式">☾</button>
+        <button class="ctrl" type="button" data-motion-toggle aria-label="✳ 减少动画效果" aria-pressed="false" title="减少动画">✳</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="course-progress" role="progressbar" aria-label="课程学习进度" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0">
+    <span class="course-progress-bar"></span>
+  </div>
+
+  <main id="main" class="wrap reading">
+    <nav class="crumbs" aria-label="当前位置">
+      <a href="../index.html">首页</a> ／ 第 3 课
+    </nav>
+
+    <header class="lesson-head">
+      <p class="label">第 3 课 · 约 20 分钟</p>
+      <h1>给信息取个名字：变量</h1>
+      <p class="lede">只学一件事：把信息装进变量，再用名字叫它。</p>
+      <ul class="lesson-meta">
+        <li>难度：零基础</li>
+        <li>需要准备：一台能上网的电脑，和一点点好奇</li>
+        <li>可以随时停下，进度会自动记住</li>
+      </ul>
+      <div class="goal-box" id="lesson-goal">
+        <h2>学完这一课，你会</h2>
+        <ul>
+          <li>用自己的话说清楚：变量是什么</li>
+          <li>会写 <code>let 名字 = 值;</code>，知道文字要加引号、数字不用</li>
+          <li>会用 console.log 让电脑把存好的信息说给你听</li>
+        </ul>
+      </div>
+      <button class="btn-speak" type="button" data-speak="lesson-intro">🔊 读给我听</button>
+    </header>
+
+    <section class="story" id="lesson-intro">
+      <p class="story-open">你打开手机通讯录，点一下“小敏”，电话就拨出去了。</p>
+      <p>那串 11 位数字，你从来没有认真记过；你记住的只是一个名字。</p>
+      <p>换了一部新手机，号码搬过去，名字也跟着搬过去，你照样点得对。这中间，你一次都没有背过号码。</p>
+      <p>通讯录做的事，说穿了很简单：把一串信息存起来，贴上一个名字。以后要用，念名字就行。</p>
+      <p>电脑里也有这样的通讯录，它叫“变量”。今天只学一件小事：给一段信息取个名字，再让电脑把它说给你听。</p>
+    </section>
+
+    <section class="concepts" aria-label="这一课的知识点">
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">1</span>
+        <h3>变量，是一个贴了标签的收纳盒</h3>
+        <p>搬家的时候，你把零碎东西分装进盒子，每个盒子外面贴一张纸条：药、票据、针线。以后要找什么，看纸条，开那个盒子。</p>
+        <p>变量就是这个盒子。你把一份信息放进去，再贴一个名字。名字由你取，只用英文小写字母，像 name、age、city。</p>
+        <p>写法是 <code>let 名字 = 值;</code>。这里的等号不是数学里的“等于”，它的意思是“放进去”。</p>
+        <div class="example"><strong>例子：</strong><code>let name = "秀兰";</code> 就是拿一个盒子，贴上 name 的标签，把“秀兰”两个字放进去。</div>
+      </article>
+
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">2</span>
+        <h3>文字要加引号，数字不用</h3>
+        <p>放文字进盒子，得给文字套一对英文引号；放数字，不用。</p>
+        <p>引号是给电脑的记号：这里面是一段文字，原样装进去，别当成别的意思。</p>
+        <p>数字加了引号，就变成文字，不能拿它算数；文字不加引号，电脑会以为那是一个名字，然后说找不到它。</p>
+        <div class="example"><strong>例子：</strong><code>let name = "秀兰";</code> 和 <code>let age = 52;</code>。年龄 52 外面，不带引号。</div>
+      </article>
+
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">3</span>
+        <h3>console.log，让电脑说给你听</h3>
+        <p>信息存好了，怎么知道它真的在盒子里？用 console.log，它就是“让电脑说给你听”。</p>
+        <p>把想说的放进括号里，点运行，下面的输出框就会显示出来。括号里可以放一句带引号的话，也可以放一个变量。</p>
+        <p>还能把几段文字接起来：<code>"你好，" + name</code>，中间那个加号，意思是把前后两段连成一段。</p>
+        <div class="example"><strong>例子：</strong><code>console.log("你好，" + name);</code> 输出框里会显示：你好，秀兰。</div>
+      </article>
+    </section>
+
+    <aside class="tip">变量名只用英文字母，不加引号，也不加空格。名字写错一个字母，电脑就不认识它了——它不会猜你想说的是什么。</aside>
+
+    <section class="playground" data-playground="js" aria-label="动手试一试">
+      <div class="pg-head">
+        <p class="pg-title">✍️ 动手区：把名字和年龄，换成你自己的</p>
+        <div class="pg-actions">
+          <button class="btn btn-run" type="button" data-run>▶ 运行看看</button>
+          <button class="btn btn-quiet" type="button" data-reset>恢复原样</button>
+        </div>
+      </div>
+      <label class="sr-only" for="pg-1">代码编辑区</label>
+      <textarea class="pg-editor" id="pg-1" spellcheck="false" rows="9">let name = "秀兰";
+let age = 52;
+
+console.log("你好，我是" + name + "。");
+console.log("我今年 " + age + " 岁。");</textarea>
+      <div class="pg-output">
+        <p class="pg-output-label">运行结果</p>
+        <iframe class="pg-frame" title="运行结果预览" sandbox="allow-scripts"></iframe>
+        <pre class="pg-console" hidden></pre>
+      </div>
+      <p class="pg-status" role="status"></p>
+    </section>
+
+    <aside class="mistake">
+      如果输出框里冒出一句“出错啦：……”，先别慌。数一数引号：左右是不是一对英文引号 <code>"</code>；有没有打成中文的 <code>“”</code>；有没有哪一行忘了写结尾那一半。电脑分不清中英文里长得像的双引号，它只认英文的那一对。
+    </aside>
+
+    <section class="task" aria-label="小任务">
+      <h3>今天的小任务</h3>
+      <p>把这段代码换成你自己的信息，再让电脑多说一句话。</p>
+      <ol>
+        <li>把 <code>"秀兰"</code> 换成你自己的名字，两边的英文引号留着。</li>
+        <li>把 <code>52</code> 换成你的年龄，数字外面不要加引号。</li>
+        <li>在最下面再写一行 <code>console.log(...)</code>，打印一句你想说的话，点运行。</li>
+      </ol>
+      <ul class="checklist">
+        <li>深色输出框里，出现了我的名字和年龄。</li>
+        <li>我新加的那句话也打印出来了，没有出现“出错啦”。</li>
+      </ul>
+    </section>
+
+    <section class="quizzes" aria-label="小测验">
+      <h2>三道小题，检查一下</h2>
+      <p class="muted">答错没关系，可以换个答案再试，也可以回到上面再看一眼。</p>
+
+      <div class="quiz" data-quiz>
+        <p class="quiz-q"><span class="quiz-no">第 1 题</span>按这一课的说法，变量是什么？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" type="button" data-correct="true">一个贴了名字的收纳盒，把信息存进去，以后用名字取</button>
+          <button class="quiz-opt" type="button" data-correct="false">一种只有数学课上才用得上的算式</button>
+          <button class="quiz-opt" type="button" data-correct="false">网页上会自动出现的一行文字</button>
+        </div>
+        <p class="quiz-feedback" role="status" data-ok="盒子装信息，标签是名字。名字由你取，取完就一直用它。" data-no="想一想手机通讯录：它替你存住了什么，又替你记住了什么？"></p>
+      </div>
+
+      <div class="quiz" data-quiz>
+        <p class="quiz-q"><span class="quiz-no">第 2 题</span>文字外面为什么要加一对引号？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" type="button" data-correct="false">加了引号，文字才会显示得更大</button>
+          <button class="quiz-opt" type="button" data-correct="true">让电脑知道这是一段文字，原样装进去</button>
+          <button class="quiz-opt" type="button" data-correct="false">引号只是让代码好看，加不加都一样</button>
+        </div>
+        <p class="quiz-feedback" role="status" data-ok="引号是给电脑的记号。文字是文字，名字是名字，电脑靠它分清楚。" data-no="想一想盒子外面那张纸条：纸条上的字，和要装进盒子的东西，怎么才能不混为一谈？"></p>
+      </div>
+
+      <div class="quiz" data-quiz>
+        <p class="quiz-q"><span class="quiz-no">第 3 题</span>console.log 的作用是什么？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" type="button" data-correct="false">把网页的背景换成深色</button>
+          <button class="quiz-opt" type="button" data-correct="true">让电脑把括号里的内容显示出来，说给你听</button>
+          <button class="quiz-opt" type="button" data-correct="false">把变量里装的信息删掉</button>
+        </div>
+        <p class="quiz-feedback" role="status" data-ok="console.log 就是让电脑开口。括号里放什么，它就说什么。" data-no="回想动手区：你点运行以后，深色框里多出来的那几行字，是谁说给你听的？"></p>
+      </div>
+    </section>
+
+    <section class="recap" aria-label="这一课的三句话">
+      <h3>用三句话记住这一课</h3>
+      <ul>
+        <li>变量是贴了名字的收纳盒：<code>let name = "秀兰";</code>，等号的意思是“放进去”。</li>
+        <li>文字要加英文引号，数字不用；变量名不加引号，也不加空格。</li>
+        <li>console.log(...) 让电脑把括号里的内容说给你听，加号能把几段文字接起来。</li>
+      </ul>
+    </section>
+
+    <nav class="lesson-nav" aria-label="课程导航">
+      <div class="nav-pair">
+        <a class="btn btn-ghost" href="lesson-2.html">← 上一课</a>
+      </div>
+      <button class="btn btn-primary" type="button" data-complete="3">我学完这一课了</button>
+      <div class="nav-pair">
+        <a class="btn btn-ghost" href="lesson-4.html">下一课 →</a>
+      </div>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html">
+            <span class="brand-mark" aria-hidden="true">她</span>
+            <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
+          </a>
+          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15 分钟，不用背，只要动手改一改。</p>
+        </div>
+        <div class="footer-col">
+          <h3>课程</h3>
+          <ul>
+            <li><a href="../index.html#course">全部 7 课</a></li>
+            <li><a href="../start.html">第一次来，怎么学</a></li>
+            <li><a href="../project.html">结业作品</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>帮助</h3>
+          <ul>
+            <li><a href="../help.html">常见问题</a></li>
+            <li><a href="../help.html#accessibility">无障碍与朗读说明</a></li>
+            <li><a href="../help.html#settings">字号、深色、动画</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>她学编程 · 一个不需要注册、不收集你信息的公益学习站</span>
+        <span>学得慢一点，也没关系。</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/app.js" defer></script>
+</body>
+</html>

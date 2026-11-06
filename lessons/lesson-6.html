@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第 6 课 · 把本事打包：函数｜她学编程</title>
+  <meta name="description" content="零基础第六课：像把做菜的步骤写在一张便签上那样，把几行代码装进函数、起个名字，学会定义、调用和 return。">
+  <meta name="theme-color" content="#faf5ee">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script>
+    (function () {
+      try {
+        var s = JSON.parse(localStorage.getItem("hx.settings") || "{}");
+        var root = document.documentElement;
+        var sizes = [18, 20, 22, 25];
+        root.style.fontSize = (sizes[s.font] || 20) + "px";
+        root.setAttribute("data-theme", s.theme || (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+        if (s.motion) root.setAttribute("data-motion", s.motion);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body class="lesson-page" data-lesson="6">
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">她</span>
+        <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="../index.html#course" aria-current="true">课程</a>
+        <a href="../start.html">怎么学</a>
+        <a href="../help.html">帮助与无障碍</a>
+      </nav>
+      <div class="ctrl-group" role="group" aria-label="阅读设置">
+        <button class="ctrl" type="button" data-font="down" aria-label="A− 缩小字号" title="缩小字号">A−</button>
+        <button class="ctrl" type="button" data-font="up" aria-label="A＋ 放大字号" title="放大字号">A＋</button>
+        <button class="ctrl" type="button" data-theme-toggle aria-label="☾ 切换深色模式" aria-pressed="false" title="深色模式">☾</button>
+        <button class="ctrl" type="button" data-motion-toggle aria-label="✳ 减少动画效果" aria-pressed="false" title="减少动画">✳</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="course-progress" role="progressbar" aria-label="课程学习进度" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0">
+    <span class="course-progress-bar"></span>
+  </div>
+
+  <main id="main" class="wrap reading">
+    <nav class="crumbs" aria-label="当前位置">
+      <a href="../index.html">首页</a> ／ 第 6 课
+    </nav>
+
+    <header class="lesson-head">
+      <p class="label">第 6 课 · 约 25 分钟</p>
+      <h1>把本事打包：函数</h1>
+      <p class="lede">这一课只学一件事：把好几行步骤打包成一句，喊名字就能用。</p>
+      <ul class="lesson-meta">
+        <li>难度：零基础</li>
+        <li>需要准备：一台能上网的电脑，和一点点好奇</li>
+        <li>可以随时停下，进度会自动记住</li>
+      </ul>
+      <div class="goal-box" id="lesson-goal">
+        <h2>学完这一课，你会</h2>
+        <ul>
+          <li>能把几行步骤写成一个函数，并给它起名字</li>
+          <li>能说清“定义”和“调用”的区别</li>
+          <li>能写出一个会打招呼、还能换名字的函数，并跑起来</li>
+        </ul>
+      </div>
+      <button class="btn-speak" type="button" data-speak="lesson-intro">🔊 读给我听</button>
+    </header>
+
+    <section class="story" id="lesson-intro">
+      <p class="story-open">家里来客人那天，你在厨房教家人做你那道凉拌黄瓜：拍碎、撒盐、挤汁、浇一勺热油。</p>
+      <p>说了三遍，还是漏掉一步。你索性撕下一张便签，把这四步写上去，用磁铁压在冰箱门上。</p>
+      <p>从那以后简单了：只要说一句“照冰箱上那张来”，这道菜就复现了。你不用每次都从头讲一遍，来帮忙的人也不用记。</p>
+      <p>今天要学的函数，就是这张便签。你把几行代码写进一个名字里，存起来；以后喊那个名字，电脑就把这几行从头到尾做一遍。</p>
+      <p>它省下的不是打字的时间，是“每一次都要重新交代清楚”的那种累。</p>
+    </section>
+
+    <section class="concepts" aria-label="这一课的知识点">
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">1</span>
+        <h3>定义：给一整套本事起个名字</h3>
+        <p><code>function</code> 这个词后面的第一件事，就是名字。你自己起，中文也行。<code>function 打招呼()</code> 的意思是：我有一套做法，名字叫“打招呼”。</p>
+        <p>花括号里写的，就是那套做法。写完之后，电脑只是把它收好了，还没有动手。</p>
+        <p>所以你会怎么做：先写 <code>function 名字()</code>，再把步骤放进花括号里。这一步叫定义。</p>
+        <div class="example"><strong>例子：</strong>只写了 <code>function 打招呼() { ... }</code>，页面上什么都不会多出来。它像一张写好、贴上去、但还没人照着做的便签。</div>
+      </article>
+
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">2</span>
+        <h3>调用：写名字加一对圆括号，它才动</h3>
+        <p>定义完，还得有人喊一声。<code>打招呼();</code> 这一行的意思是：照那张便签，现在做一遍。</p>
+        <p>这两个动作很不一样：定义是“写下来”，调用是“现在做”。定义一次就够，调用可以很多次。</p>
+        <p>所以你会怎么做：先定义，再调用。少了后面这一步，页面上会安安静静，什么都没有。</p>
+        <div class="example"><strong>例子：</strong>动手区里写了两行调用，就打印两行问候；写十行，就打印十行。函数只定义了一次。</div>
+      </article>
+
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">3</span>
+        <h3>参数与 <code>return</code>：能收东西，也能把结果交回来</h3>
+        <p>函数名字后面那对圆括号，可以装东西。<code>function 打招呼(名字)</code> 里的“名字”，就是<strong>参数</strong>——调用的时候，你交给它用的东西。</p>
+        <p>做完之后，它还可以交回一个结果，靠的是 <code>return</code>。<code>return</code> 后面写什么，函数就把什么交出来。</p>
+        <p>所以你会怎么做：把要交给它用的东西写在圆括号里，把做完的结果写在 <code>return</code> 后面；然后拿外面那行 <code>console.log</code> 接住它。</p>
+        <div class="example"><strong>例子：</strong>调用 <code>打招呼("小林")</code>，“小林”就是这次交进去的名字；函数把它拼成“你好，小林。”，用 <code>return</code> 交回来，<code>console.log</code> 才打印得出来。</div>
+      </article>
+    </section>
+
+    <aside class="mistake">
+      如果点了运行，输出框里一个字都没有，先别怀疑自己。看看有没有写调用的那一行。光把函数写出来（<code>function 名字() { ... }</code>），电脑只是“知道了”，不会自己开始做。这不是你没学会，是还差一句“现在开始”。
+    </aside>
+
+    <aside class="tip">起名字要一眼看得懂，中文也行；但定义和调用必须一字不差。差一个字，电脑就当那是另一个东西，安安静静什么都不做。</aside>
+
+    <section class="playground" data-playground="js" aria-label="动手试一试">
+      <div class="pg-head">
+        <p class="pg-title">✍️ 动手区：把名字换成你家人的</p>
+        <div class="pg-actions">
+          <button class="btn btn-run" type="button" data-run>▶ 运行看看</button>
+          <button class="btn btn-quiet" type="button" data-reset>恢复原样</button>
+        </div>
+      </div>
+      <label class="sr-only" for="pg-1">代码编辑区</label>
+      <textarea class="pg-editor" id="pg-1" spellcheck="false" rows="8">function 打招呼(名字) {
+  return "你好，" + 名字 + "，今天也慢慢来。";
+}
+
+console.log(打招呼("小林"));
+console.log(打招呼("阿梅"));</textarea>
+      <div class="pg-output">
+        <p class="pg-output-label">运行结果</p>
+        <iframe class="pg-frame" title="运行结果预览" sandbox="allow-scripts"></iframe>
+        <pre class="pg-console" hidden></pre>
+      </div>
+      <p class="pg-status" role="status"></p>
+    </section>
+
+    <aside class="mistake">
+      如果结果里出现了一行 <code>undefined</code>，意思是“没有拿回东西”。最常见的原因，是函数里忘了写 <code>return</code>，或者把要交出去的结果直接在函数里 <code>console.log</code> 掉了——那样它只在函数里面说了一句，外面什么也没接到。回头看一眼：函数最后是不是有一行以 <code>return</code> 开头。要是 <code>return</code> 拼错了，比如写成 retrun，结果里会出现一句“出错啦”，改回来就好。
+    </aside>
+
+    <section class="task" aria-label="小任务">
+      <h3>今天的小任务</h3>
+      <p>写一个能打招呼的函数，然后换两个名字，各调用一次。</p>
+      <ol>
+        <li>把 <code>return</code> 那一行里“今天也慢慢来”换成你想说的问候。</li>
+        <li>把下面两次调用里的“小林”“阿梅”，换成两个家人的名字。</li>
+        <li>点“运行看看”，看看出来的是不是两行不一样的问候。</li>
+      </ol>
+      <ul class="checklist">
+        <li>我只写了一次 <code>function</code>，却问好了两个人。</li>
+        <li>两行字里只有名字不同，问候语是一样的。</li>
+      </ul>
+    </section>
+
+    <section class="quizzes" aria-label="小测验">
+      <h2>三道小题，检查一下</h2>
+      <p class="muted">答错没关系，可以换个答案再试，也可以回到上面再看一眼。</p>
+
+      <div class="quiz" data-quiz>
+        <p class="quiz-q"><span class="quiz-no">第 1 题</span>“定义”和“调用”，区别在哪？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" type="button" data-correct="true">定义是写下一套做法，调用是让它现在做一遍</button>
+          <button class="quiz-opt" type="button" data-correct="false">定义是让它现在做，调用是写下来</button>
+          <button class="quiz-opt" type="button" data-correct="false">两个词说的是同一件事，写哪个都行</button>
+        </div>
+        <p class="quiz-feedback" role="status" data-ok="定义像把步骤贴在冰箱上，调用像说一句“照那张做”。缺一样，菜都出不来。" data-no="想一想那张便签：写便签，和照着便签做，是同一个动作吗？"></p>
+      </div>
+
+      <div class="quiz" data-quiz>
+        <p class="quiz-q"><span class="quiz-no">第 2 题</span>参数是什么？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" type="button" data-correct="false">函数的名字</button>
+          <button class="quiz-opt" type="button" data-correct="true">调用的时候，你交给函数去用的东西</button>
+          <button class="quiz-opt" type="button" data-correct="false">函数跑完还给你的结果</button>
+        </div>
+        <p class="quiz-feedback" role="status" data-ok="参数是交进去的东西。调用打招呼的时候，圆括号里的“小林”，就是这一次你交给它的名字。" data-no="看看圆括号里的“小林”：它是函数自己知道的，还是你交给它的？"></p>
+      </div>
+
+      <div class="quiz" data-quiz>
+        <p class="quiz-q"><span class="quiz-no">第 3 题</span><code>return</code> 的作用是什么？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" type="button" data-correct="false">让页面显示一行字</button>
+          <button class="quiz-opt" type="button" data-correct="false">把整个网页关掉</button>
+          <button class="quiz-opt" type="button" data-correct="true">把函数做完的结果交回来</button>
+        </div>
+        <p class="quiz-feedback" role="status" data-ok="return 是函数的出口。没有它，函数做完了也拿不出结果，外面只能看到 undefined。" data-no="想让外面那行 console.log 打印出结果，函数得先把结果交给谁？"></p>
+      </div>
+    </section>
+
+    <section class="recap" aria-label="这一课的三句话">
+      <h3>用三句话记住这一课</h3>
+      <ul>
+        <li>函数，就是把几行步骤打包，起一个名字。</li>
+        <li>写了 <code>function</code> 只是定义；要写 <code>名字();</code> 才是调用，它才会动。</li>
+        <li>参数是交进去的东西，<code>return</code> 是交回来的结果。</li>
+      </ul>
+    </section>
+
+    <nav class="lesson-nav" aria-label="课程导航">
+      <div class="nav-pair">
+        <a class="btn btn-ghost" href="lesson-5.html">← 上一课</a>
+      </div>
+      <button class="btn btn-primary" type="button" data-complete="6">我学完这一课了</button>
+      <div class="nav-pair">
+        <a class="btn btn-ghost" href="../project.html">去结业作品 →</a>
+      </div>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html">
+            <span class="brand-mark" aria-hidden="true">她</span>
+            <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
+          </a>
+          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15 分钟，不用背，只要动手改一改。</p>
+        </div>
+        <div class="footer-col">
+          <h3>课程</h3>
+          <ul>
+            <li><a href="../index.html#course">全部 7 课</a></li>
+            <li><a href="../start.html">第一次来，怎么学</a></li>
+            <li><a href="../project.html">结业作品</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>帮助</h3>
+          <ul>
+            <li><a href="../help.html">常见问题</a></li>
+            <li><a href="../help.html#accessibility">无障碍与朗读说明</a></li>
+            <li><a href="../help.html#settings">字号、深色、动画</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>她学编程 · 一个不需要注册、不收集你信息的公益学习站</span>
+        <span>学得慢一点，也没关系。</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/app.js" defer></script>
+</body>
+</html>

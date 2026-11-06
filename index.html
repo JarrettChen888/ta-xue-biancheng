@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>她学编程 · 50 岁开始，慢慢学得会</title>
+  <meta name="description" content="一个写给 50 岁左右、零基础女性的编程课。7 节课，每天 15 分钟，从第一行字到做出自己的网页。大字号、能朗读、不用注册。">
+  <meta name="theme-color" content="#faf5ee">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script>
+    (function () {
+      try {
+        var s = JSON.parse(localStorage.getItem("hx.settings") || "{}");
+        var root = document.documentElement;
+        var sizes = [18, 20, 22, 25];
+        root.style.fontSize = (sizes[s.font] || 20) + "px";
+        root.setAttribute("data-theme", s.theme || (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+        if (s.motion) root.setAttribute("data-motion", s.motion);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">她</span>
+        <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="index.html#course" aria-current="page">课程</a>
+        <a href="start.html">怎么学</a>
+        <a href="help.html">帮助与无障碍</a>
+      </nav>
+      <div class="ctrl-group" role="group" aria-label="阅读设置">
+        <button class="ctrl" type="button" data-font="down" aria-label="A− 缩小字号" title="缩小字号">A−</button>
+        <button class="ctrl" type="button" data-font="up" aria-label="A＋ 放大字号" title="放大字号">A＋</button>
+        <button class="ctrl" type="button" data-theme-toggle aria-label="☾ 切换深色模式" aria-pressed="false" title="深色模式">☾</button>
+        <button class="ctrl" type="button" data-motion-toggle aria-label="✳ 减少动画效果" aria-pressed="false" title="减少动画">✳</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ 英雄区 ============ -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="label">写给 50 岁的你 · 零基础也可以</p>
+          <h1 class="hero-title">五十岁开始学编程，<br><span class="mark">刚刚好。</span></h1>
+          <p class="hero-lede">这是一门写给 50 岁左右、从零开始的你的编程课。不用背代码，不用懂英文，每天 15 分钟——你会亲手做出一个属于自己的网页。</p>
+          <div class="cta-row">
+            <a class="btn btn-primary btn-lg" href="lessons/lesson-0.html" data-next-lesson>从第 0 课开始 →</a>
+            <a class="btn btn-ghost btn-lg" href="start.html">先看看怎么学</a>
+          </div>
+          <ul class="hero-facts">
+            <li>不需要任何基础</li>
+            <li>每天 15 分钟</li>
+            <li>全程免费，不用注册</li>
+          </ul>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-top">
+            <span>我的第一个网页</span>
+            <span class="dots" aria-hidden="true"></span>
+          </div>
+          <pre><code><span class="tag">&lt;h1&gt;</span>今天的我<span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;p&gt;</span>五十岁这年，我学会了让电脑听话。<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;p&gt;</span>这是我做的第一个网页。<span class="tag">&lt;/p&gt;</span></code></pre>
+          <p class="hero-card-note">↑ 这些字，你在第 1 课就能亲手写出来。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 三个安心的事实 ============ -->
+    <section class="wrap section-tight" aria-label="这门课的特点">
+      <div class="fact-strip">
+        <div class="fact">
+          <span class="fact-icon" aria-hidden="true">👓</span>
+          <div>
+            <strong>字大、行宽、看得清</strong>
+            <span>默认字号就比普通网站大，页面右上角还能再放大。</span>
+          </div>
+        </div>
+        <div class="fact">
+          <span class="fact-icon" aria-hidden="true">🔊</span>
+          <div>
+            <strong>不想看，就听</strong>
+            <span>每一课的故事，都可以点一下“读给我听”。</span>
+          </div>
+        </div>
+        <div class="fact">
+          <span class="fact-icon" aria-hidden="true">⏸</span>
+          <div>
+            <strong>随时停，进度自己记住</strong>
+            <span>不用打卡、不用赶。回来了，从上次的地方接着学。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 课程地图 ============ -->
+    <section class="wrap section" id="course" aria-labelledby="course-title">
+      <div class="section-head">
+        <p class="label">课程地图</p>
+        <h2 id="course-title">七节课，从第一句话到自己的作品</h2>
+        <p class="lede">每一课只学一件事，学完就停。不用一口气看完，也不用记住所有东西——用到的时候，回来查就行。</p>
+      </div>
+
+      <!-- 花瓣进度 -->
+      <div class="progress-panel">
+        <svg class="flower" viewBox="0 0 200 200" role="img" aria-label="学习进度：七片花瓣已开 0 片，共 7 片">
+          <g>
+            <path class="petal" d="M100 96 C82 74 82 40 100 22 C118 40 118 74 100 96 Z" transform="rotate(0 100 100)"/>
+            <path class="petal" d="M100 96 C82 74 82 40 100 22 C118 40 118 74 100 96 Z" transform="rotate(51.43 100 100)"/>
+            <path class="petal" d="M100 96 C82 74 82 40 100 22 C118 40 118 74 100 96 Z" transform="rotate(102.86 100 100)"/>
+            <path class="petal" d="M100 96 C82 74 82 40 100 22 C118 40 118 74 100 96 Z" transform="rotate(154.29 100 100)"/>
+            <path class="petal" d="M100 96 C82 74 82 40 100 22 C118 40 118 74 100 96 Z" transform="rotate(205.71 100 100)"/>
+            <path class="petal" d="M100 96 C82 74 82 40 100 22 C118 40 118 74 100 96 Z" transform="rotate(257.14 100 100)"/>
+            <path class="petal" d="M100 96 C82 74 82 40 100 22 C118 40 118 74 100 96 Z" transform="rotate(308.57 100 100)"/>
+          </g>
+          <circle class="flower-center" cx="100" cy="100" r="13"/>
+        </svg>
+        <div class="progress-copy">
+          <h2>你的花，会一朵一朵开</h2>
+          <p>每学完一课，就点亮一片花瓣。七片都开了，你就能做出自己的网页作品。</p>
+          <p class="progress-count" data-progress-text>已学 0 / 7 课</p>
+        </div>
+        <div>
+          <a class="btn btn-primary" href="lessons/lesson-0.html" data-next-lesson>从第 0 课开始 →</a>
+        </div>
+      </div>
+
+      <ol class="course-map">
+        <li>
+          <a class="lesson-row" href="lessons/lesson-0.html" data-lesson="0">
+            <span class="lesson-no" aria-hidden="true">第 0 课</span>
+            <span class="lesson-info">
+              <strong>代码，其实就是一份说明书</strong>
+              <span>先弄懂：代码是什么、网页由什么组成 · 约 15 分钟</span>
+            </span>
+            <span class="lesson-status" data-status>还没学</span>
+          </a>
+        </li>
+        <li>
+          <a class="lesson-row" href="lessons/lesson-1.html" data-lesson="1">
+            <span class="lesson-no" aria-hidden="true">第 1 课</span>
+            <span class="lesson-info">
+              <strong>让网页上出现你的字</strong>
+              <span>HTML：标题和段落，你写什么它就显示什么 · 约 20 分钟</span>
+            </span>
+            <span class="lesson-status" data-status>还没学</span>
+          </a>
+        </li>
+        <li>
+          <a class="lesson-row" href="lessons/lesson-2.html" data-lesson="2">
+            <span class="lesson-no" aria-hidden="true">第 2 课</span>
+            <span class="lesson-info">
+              <strong>给网页换个样子</strong>
+              <span>CSS：颜色、字号、居中，像给房间做装修 · 约 20 分钟</span>
+            </span>
+            <span class="lesson-status" data-status>还没学</span>
+          </a>
+        </li>
+        <li>
+          <a class="lesson-row" href="lessons/lesson-3.html" data-lesson="3">
+            <span class="lesson-no" aria-hidden="true">第 3 课</span>
+            <span class="lesson-info">
+              <strong>给信息取个名字：变量</strong>
+              <span>JavaScript：让电脑记住名字、年龄这些事 · 约 20 分钟</span>
+            </span>
+            <span class="lesson-status" data-status>还没学</span>
+          </a>
+        </li>
+        <li>
+          <a class="lesson-row" href="lessons/lesson-4.html" data-lesson="4">
+            <span class="lesson-no" aria-hidden="true">第 4 课</span>
+            <span class="lesson-info">
+              <strong>让电脑学会判断</strong>
+              <span>if / else：如果……就……，像出门前看天带伞 · 约 25 分钟</span>
+            </span>
+            <span class="lesson-status" data-status>还没学</span>
+          </a>
+        </li>
+        <li>
+          <a class="lesson-row" href="lessons/lesson-5.html" data-lesson="5">
+            <span class="lesson-no" aria-hidden="true">第 5 课</span>
+            <span class="lesson-info">
+              <strong>重复的事，交给循环</strong>
+              <span>for：写一遍，电脑替你重复十遍 · 约 25 分钟</span>
+            </span>
+            <span class="lesson-status" data-status>还没学</span>
+          </a>
+        </li>
+        <li>
+          <a class="lesson-row" href="lessons/lesson-6.html" data-lesson="6">
+            <span class="lesson-no" aria-hidden="true">第 6 课</span>
+            <span class="lesson-info">
+              <strong>把本事打包：函数</strong>
+              <span>function：学会一个本领，随时拿出来用 · 约 25 分钟</span>
+            </span>
+            <span class="lesson-status" data-status>还没学</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ 为什么现在学 ============ -->
+    <section class="wrap section" aria-labelledby="why-title">
+      <div class="section-head">
+        <p class="label">说句真心话</p>
+        <h2 id="why-title">为什么五十岁学编程，是个好主意</h2>
+      </div>
+      <div class="grid grid-3">
+        <article class="card">
+          <span class="card-num" aria-hidden="true">一</span>
+          <h3>你不是从零开始</h3>
+          <p>你有一辈子解决问题的经验：怎么安排一桌菜、怎么把事情交代清楚。编程不过是换一种说法，把这些本事说给电脑听。</p>
+        </article>
+        <article class="card">
+          <span class="card-num" aria-hidden="true">二</span>
+          <h3>它很像做菜</h3>
+          <p>先放什么、后放什么、放多少，都有顺序。做多了就熟，做错了就重来。厨房里学会的道理，在这里一样管用。</p>
+        </article>
+        <article class="card">
+          <span class="card-num" aria-hidden="true">三</span>
+          <h3>学得慢，反而学得牢</h3>
+          <p>这门课不赶进度。每课只讲一件事，讲完就让你动手。慢一点，你会发现自己是真的懂了，不是看懂了。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ 你会做出来的东西 ============ -->
+    <section class="wrap section" aria-labelledby="project-title">
+      <div class="project-preview">
+        <div class="project-preview-copy">
+          <p class="label">结业作品</p>
+          <h2 id="project-title">我家的餐桌</h2>
+          <p>七课学完，你会做出一个自己的网页：一张家常菜单，有菜名、有颜色、有一句你想说的话。</p>
+          <ul>
+            <li>把家人的拿手菜写上去</li>
+            <li>换成你喜欢的颜色和字号</li>
+            <li>保存下来，发给家人，或者设成浏览器主页</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn btn-ghost" href="project.html">看看结业作品的样子 →</a>
+          </div>
+        </div>
+        <div class="project-browser">
+          <div class="browser-window" aria-hidden="true">
+            <div class="browser-bar"><i></i><i></i><i></i><span>我家的餐桌</span></div>
+            <div class="browser-body">
+              <h3>周末家宴</h3>
+              <div class="browser-photo"></div>
+              <p>红烧肉　·　清蒸鲈鱼<br>蒜蓉西兰花　·　莲藕排骨汤</p>
+              <p>“人齐了，就开饭。”</p>
+              <p class="browser-sign">—— 我做的第一个网页</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 无障碍说明 ============ -->
+    <section class="wrap section" aria-labelledby="a11y-title">
+      <div class="section-head">
+        <p class="label">为你多想的几步</p>
+        <h2 id="a11y-title">眼睛、耳朵、习惯，都照顾到了</h2>
+        <p class="lede">这个网站不要求你“适应它”。它可以适应你。</p>
+      </div>
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>看得清</h3>
+          <p>默认大字号、宽行距、高对比度；右上角可以把字放到更大，也可以换成深色背景，晚上看不刺眼。</p>
+        </article>
+        <article class="card">
+          <h3>听得懂</h3>
+          <p>每课的故事都能一键朗读。用键盘也能操作全站：Tab 键移动，Enter 确认，Esc 停止朗读。</p>
+        </article>
+        <article class="card">
+          <h3>跟得上</h3>
+          <p>没有倒计时、没有排行榜。可以随时关掉页面，下次回来进度还在，动画也能一键减少。</p>
+        </article>
+        <article class="card">
+          <h3>放心用</h3>
+          <p>不需要注册，不收集你的信息，也没有广告。学习记录只存在你自己的浏览器里。</p>
+        </article>
+      </div>
+      <p class="cta-row"><a class="btn btn-quiet" href="help.html#accessibility">看看完整的无障碍说明 →</a></p>
+    </section>
+
+    <!-- ============ 收尾 ============ -->
+    <section class="wrap closing">
+      <h2>准备好写下第一行字了吗？</h2>
+      <p>不用等一个“合适的时候”。就从今天，15 分钟，一课。</p>
+      <div class="cta-row center">
+        <a class="btn btn-primary btn-lg" href="lessons/lesson-0.html" data-next-lesson>从第 0 课开始 →</a>
+        <a class="btn btn-ghost btn-lg" href="start.html">第一次来，先看这里</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">她</span>
+            <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
+          </a>
+          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15 分钟，不用背，只要动手改一改。学得慢一点，也没关系。</p>
+        </div>
+        <div class="footer-col">
+          <h3>课程</h3>
+          <ul>
+            <li><a href="lessons/lesson-0.html">第 0 课 · 认识代码</a></li>
+            <li><a href="lessons/lesson-1.html">第 1 课 · 第一行字</a></li>
+            <li><a href="lessons/lesson-2.html">第 2 课 · 换样子</a></li>
+            <li><a href="index.html#course">全部 7 课</a></li>
+            <li><a href="project.html">结业作品</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>帮助</h3>
+          <ul>
+            <li><a href="start.html">第一次来，怎么学</a></li>
+            <li><a href="help.html">常见问题</a></li>
+            <li><a href="help.html#accessibility">无障碍与朗读说明</a></li>
+            <li><a href="help.html#settings">字号、深色、动画</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>她学编程 · 一个不需要注册、不收集你信息的公益学习站</span>
+        <span>学得慢一点，也没关系。</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

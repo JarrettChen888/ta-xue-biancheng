@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第 1 课 · 让网页上出现你的字｜她学编程</title>
+  <meta name="description" content="认识 HTML 标签：用 h1 做大标题、用 p 写段落，亲手把名字和两句话放上网页，做出你的第一个自我介绍页面。">
+  <meta name="theme-color" content="#faf5ee">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script>
+    /* 在页面画出之前先应用阅读设置，避免闪一下 */
+    (function () {
+      try {
+        var s = JSON.parse(localStorage.getItem("hx.settings") || "{}");
+        var root = document.documentElement;
+        var sizes = [18, 20, 22, 25];
+        root.style.fontSize = (sizes[s.font] || 20) + "px";
+        root.setAttribute("data-theme", s.theme || (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+        if (s.motion) root.setAttribute("data-motion", s.motion);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body class="lesson-page" data-lesson="1">
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">她</span>
+        <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="../index.html#course" aria-current="true">课程</a>
+        <a href="../start.html">怎么学</a>
+        <a href="../help.html">帮助与无障碍</a>
+      </nav>
+      <div class="ctrl-group" role="group" aria-label="阅读设置">
+        <button class="ctrl" type="button" data-font="down" aria-label="A− 缩小字号" title="缩小字号">A−</button>
+        <button class="ctrl" type="button" data-font="up" aria-label="A＋ 放大字号" title="放大字号">A＋</button>
+        <button class="ctrl" type="button" data-theme-toggle aria-label="☾ 切换深色模式" aria-pressed="false" title="深色模式">☾</button>
+        <button class="ctrl" type="button" data-motion-toggle aria-label="✳ 减少动画效果" aria-pressed="false" title="减少动画">✳</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="course-progress" role="progressbar" aria-label="课程学习进度" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0">
+    <span class="course-progress-bar"></span>
+  </div>
+
+  <main id="main" class="wrap reading">
+    <nav class="crumbs" aria-label="当前位置">
+      <a href="../index.html">首页</a> ／ 第 1 课
+    </nav>
+
+    <header class="lesson-head">
+      <p class="label">第 1 课 · 约 20 分钟</p>
+      <h1>让网页上出现你的字</h1>
+      <p class="lede">只学一件事：给文字贴上标签，让它出现在网页上。</p>
+      <ul class="lesson-meta">
+        <li>难度：零基础</li>
+        <li>需要准备：一台能上网的电脑，和一点点好奇</li>
+        <li>可以随时停下，进度会自动记住</li>
+      </ul>
+      <div class="goal-box" id="lesson-goal">
+        <h2>学完这一课，你会</h2>
+        <ul>
+          <li>认出开始标签和结束标签，知道它们得成对出现</li>
+          <li>用 h1 写一行大标题，用 p 写一段话</li>
+          <li>让网页上出现你的名字和两句自我介绍</li>
+        </ul>
+      </div>
+      <button class="btn-speak" type="button" data-speak="lesson-intro">🔊 读给我听</button>
+    </header>
+
+    <section class="story" id="lesson-intro">
+      <p class="story-open">家里的电视和机顶盒，各有一个遥控器，长得几乎一样。你在其中一个背面贴了一张小标签，写：电视。</p>
+      <p>家人拿的时候，看一眼标签，就不会按错。标签没有改变遥控器，只是告诉拿的人：这个东西是干什么用的。</p>
+      <p>网页上的文字也需要这张标签。浏览器看到一大段字，分不清哪句是标题、哪句是正文；你给它贴上标签，它才照着显示。</p>
+      <p>今天只学这一件小事：给文字贴标签，让它变成标题和段落。</p>
+    </section>
+
+    <section class="concepts" aria-label="这一课的知识点">
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">1</span>
+        <h3>标签，是给文字套上的一件外套</h3>
+        <p>冬天出门，你会给身子套一件外套。外套不改变你这个人，只是告诉别人：这是要出门的样子。</p>
+        <p>网页里的标签也一样。它不改变文字本身，只告诉浏览器：这几个字，该按什么身份显示。</p>
+        <p>标签分两半。开始标签长这样：<code>&lt;h1&gt;</code>；结束标签多一条斜杠：<code>&lt;/h1&gt;</code>。两个合起来夹住字，才算穿好了。</p>
+        <div class="example"><strong>例子：</strong><code>&lt;h1&gt;你好&lt;/h1&gt;</code> 会显示成一行大标题；只写“你好”两个字，它就只是一行普通小字。</div>
+      </article>
+
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">2</span>
+        <h3>h1 是大标题，p 是段落</h3>
+        <p>网页里最常用的两件外套：h1 管大标题，一个页面通常只用一个，像报纸最上面那行大字。</p>
+        <p>p 管段落，可以有很多个，一段话一个 p。p 是英文 paragraph 的开头字母，而 paragraph 的意思就是段落。不用背，用几次就顺了。</p>
+        <div class="example"><strong>例子：</strong>你的名字放进 <code>&lt;h1&gt;</code>，你的自我介绍放进 <code>&lt;p&gt;</code>，页面上就是一个大标题，下面跟着一段话。</div>
+      </article>
+
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">3</span>
+        <h3>想换行，靠段落，不靠回车</h3>
+        <p>你在代码里按回车，把一句话断成两行，浏览器会当成同一段，照样连着显示。</p>
+        <p>想新起一段，就再写一组 <code>&lt;p&gt;</code> 和 <code>&lt;/p&gt;</code>，把新的一句话放进去。</p>
+        <div class="example"><strong>例子：</strong>两句话写成两组 p，页面上就是两段；塞进同一组 p 里，两句话就挤在同一段。</div>
+      </article>
+    </section>
+
+    <aside class="tip">写标签的小习惯：先把 <code>&lt;h1&gt;&lt;/h1&gt;</code> 这一对写好，再把字打进中间。这样不容易漏掉结尾，改起来也快。</aside>
+
+    <section class="playground" data-playground="html" aria-label="动手试一试">
+      <div class="pg-head">
+        <p class="pg-title">✍️ 动手区：把标题和正文，换成你自己的</p>
+        <div class="pg-actions">
+          <button class="btn btn-run" type="button" data-run>▶ 运行看看</button>
+          <button class="btn btn-quiet" type="button" data-reset>恢复原样</button>
+        </div>
+      </div>
+      <label class="sr-only" for="pg-1">代码编辑区</label>
+      <textarea class="pg-editor" id="pg-1" spellcheck="false" rows="8"><h1>你好，我是＿＿＿＿</h1>
+<p>我住在＿＿＿＿，平时喜欢＿＿＿＿。</p></textarea>
+      <div class="pg-output">
+        <p class="pg-output-label">运行结果</p>
+        <iframe class="pg-frame" title="运行结果预览" sandbox="allow-scripts"></iframe>
+        <pre class="pg-console" hidden></pre>
+      </div>
+      <p class="pg-status" role="status"></p>
+    </section>
+
+    <aside class="mistake">
+      如果你看到页面上直接冒出了 <code>&lt;h1&gt;</code> 这几个字，那不是你笨。多半是哪个尖括号少了一半，或者把 h1 写成了 hl——h 后面是数字 1，不是字母 l，这两个长得太像了。还有一种情况：标题下面的字全都变得又大又粗，那是结束标签漏写了。<code>&lt;h1&gt;</code> 开了头，就得用 <code>&lt;/h1&gt;</code> 收尾。
+    </aside>
+
+    <section class="task" aria-label="小任务">
+      <h3>今天的小任务</h3>
+      <p>做一个属于你自己的“我的自我介绍”网页：一行大标题写名字，两句自己的话写在下面。</p>
+      <ol>
+        <li>把标题里的 ＿＿＿＿ 换成你的名字，点一下“运行看看”。</li>
+        <li>把第一段里那两个空填上：住哪儿，喜欢什么。</li>
+        <li>在下面再添一组 <code>&lt;p&gt;</code> 和 <code>&lt;/p&gt;</code>，写第二句话，再运行一次。</li>
+      </ol>
+      <ul class="checklist">
+        <li>运行结果最上面是我的名字，字比别处大。</li>
+        <li>我写的两句话分成了两段，中间有空隙，没有挤在一起。</li>
+      </ul>
+    </section>
+
+    <section class="quizzes" aria-label="小测验">
+      <h2>三道小题，检查一下</h2>
+      <p class="muted">答错没关系，可以换个答案再试，也可以回到上面再看一眼。</p>
+
+      <div class="quiz" data-quiz>
+        <p class="quiz-q"><span class="quiz-no">第 1 题</span>想让一句话成为网页上的普通段落，该用哪个标签把字夹住？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" type="button" data-correct="false"><code>&lt;h1&gt;</code></button>
+          <button class="quiz-opt" type="button" data-correct="true"><code>&lt;p&gt;</code></button>
+          <button class="quiz-opt" type="button" data-correct="false"><code>&lt;hl&gt;</code></button>
+        </div>
+        <p class="quiz-feedback" role="status" data-ok="p 是段落的标签，一段话一组，想写几段就写几组。" data-no="回到知识卡看一眼：管大标题的是哪一件外套？段落在英文里的开头字母又是什么？"></p>
+      </div>
+
+      <div class="quiz" data-quiz>
+        <p class="quiz-q"><span class="quiz-no">第 2 题</span>开始标签 <code>&lt;h1&gt;</code> 和结束标签 <code>&lt;/h1&gt;</code>，区别在哪里？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" type="button" data-correct="true">结束标签多一条斜杠，表示这几个字到这里收尾</button>
+          <button class="quiz-opt" type="button" data-correct="false">结束标签多一条斜杠，表示这几个字要变得更大</button>
+          <button class="quiz-opt" type="button" data-correct="false">两个没有区别，有开头那个就够了</button>
+        </div>
+        <p class="quiz-feedback" role="status" data-ok="斜杠就是收尾的记号。外套穿上了，也要记得脱下来。" data-no="把两个标签放在一起看：一个像开头，一个像收尾。那条斜杠出现在哪一边？"></p>
+      </div>
+
+      <div class="quiz" data-quiz>
+        <p class="quiz-q"><span class="quiz-no">第 3 题</span>你想在网页上再多加一句话，让它单独成为一行，应该怎么做？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" type="button" data-correct="false">在上一句后面一直按回车，再打新的字</button>
+          <button class="quiz-opt" type="button" data-correct="true">再写一组 <code>&lt;p&gt;</code> 和 <code>&lt;/p&gt;</code>，把新句子放进去</button>
+          <button class="quiz-opt" type="button" data-correct="false">把新句子直接接在上一句后面，塞进同一个 p 里</button>
+        </div>
+        <p class="quiz-feedback" role="status" data-ok="想多一行，就多一组标签。浏览器靠标签分段，不靠你按了多少次回车。" data-no="想一想：你在代码里按的回车，浏览器看得见吗？它认的又是哪一种记号？"></p>
+      </div>
+    </section>
+
+    <section class="recap" aria-label="这一课的三句话">
+      <h3>用三句话记住这一课</h3>
+      <ul>
+        <li>标签是给文字套的外套：开始标签开头，结束标签多一条斜杠收尾，要成对出现。</li>
+        <li>h1 管大标题，p 管段落；要几段，就写几组 p。</li>
+        <li>想换行，靠另写一个段落，不靠按回车。</li>
+      </ul>
+    </section>
+
+    <nav class="lesson-nav" aria-label="课程导航">
+      <div class="nav-pair">
+        <a class="btn btn-ghost" href="lesson-0.html">← 上一课</a>
+      </div>
+      <button class="btn btn-primary" type="button" data-complete="1">我学完这一课了</button>
+      <div class="nav-pair">
+        <a class="btn btn-ghost" href="lesson-2.html">下一课 →</a>
+      </div>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html">
+            <span class="brand-mark" aria-hidden="true">她</span>
+            <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
+          </a>
+          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15 分钟，不用背，只要动手改一改。</p>
+        </div>
+        <div class="footer-col">
+          <h3>课程</h3>
+          <ul>
+            <li><a href="../index.html#course">全部 7 课</a></li>
+            <li><a href="../start.html">第一次来，怎么学</a></li>
+            <li><a href="../project.html">结业作品</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>帮助</h3>
+          <ul>
+            <li><a href="../help.html">常见问题</a></li>
+            <li><a href="../help.html#accessibility">无障碍与朗读说明</a></li>
+            <li><a href="../help.html#settings">字号、深色、动画</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>她学编程 · 一个不需要注册、不收集你信息的公益学习站</span>
+        <span>学得慢一点，也没关系。</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/app.js" defer></script>
+</body>
+</html>

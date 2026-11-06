@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第 4 课 · 让电脑学会判断｜她学编程</title>
+  <meta name="description" content="零基础第四课：用出门带伞和路口的红绿灯，弄懂 if 和 else 怎么让电脑做判断，分清 = 和 ===。">
+  <meta name="theme-color" content="#faf5ee">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script>
+    (function () {
+      try {
+        var s = JSON.parse(localStorage.getItem("hx.settings") || "{}");
+        var root = document.documentElement;
+        var sizes = [18, 20, 22, 25];
+        root.style.fontSize = (sizes[s.font] || 20) + "px";
+        root.setAttribute("data-theme", s.theme || (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+        if (s.motion) root.setAttribute("data-motion", s.motion);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body class="lesson-page" data-lesson="4">
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">她</span>
+        <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="../index.html#course" aria-current="true">课程</a>
+        <a href="../start.html">怎么学</a>
+        <a href="../help.html">帮助与无障碍</a>
+      </nav>
+      <div class="ctrl-group" role="group" aria-label="阅读设置">
+        <button class="ctrl" type="button" data-font="down" aria-label="A− 缩小字号" title="缩小字号">A−</button>
+        <button class="ctrl" type="button" data-font="up" aria-label="A＋ 放大字号" title="放大字号">A＋</button>
+        <button class="ctrl" type="button" data-theme-toggle aria-label="☾ 切换深色模式" aria-pressed="false" title="深色模式">☾</button>
+        <button class="ctrl" type="button" data-motion-toggle aria-label="✳ 减少动画效果" aria-pressed="false" title="减少动画">✳</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="course-progress" role="progressbar" aria-label="课程学习进度" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0">
+    <span class="course-progress-bar"></span>
+  </div>
+
+  <main id="main" class="wrap reading">
+    <nav class="crumbs" aria-label="当前位置">
+      <a href="../index.html">首页</a> ／ 第 4 课
+    </nav>
+
+    <header class="lesson-head">
+      <p class="label">第 4 课 · 约 25 分钟</p>
+      <h1>让电脑学会判断</h1>
+      <p class="lede">这一课只学一件事：让电脑看一个条件，自己选一条路走。</p>
+      <ul class="lesson-meta">
+        <li>难度：零基础</li>
+        <li>需要准备：一台能上网的电脑，和一点点好奇</li>
+        <li>可以随时停下，进度会自动记住</li>
+      </ul>
+      <div class="goal-box" id="lesson-goal">
+        <h2>学完这一课，你会</h2>
+        <ul>
+          <li>能让电脑根据一个条件，从两条路里选一条走</li>
+          <li>能说清 <code>===</code> 和 <code>=</code> 各是做什么的</li>
+          <li>写出一个“今天要不要带伞”的判断，并且跑起来</li>
+        </ul>
+      </div>
+      <button class="btn-speak" type="button" data-speak="lesson-intro">🔊 读给我听</button>
+    </header>
+
+    <section class="story" id="lesson-intro">
+      <p class="story-open">早上七点，你的手搭在门把手上，又收了回来，抬头看了看窗外。</p>
+      <p>天灰得像一块洗旧了的抹布。你没查天气预报，也没多想，转身回屋，把伞放进了包里。</p>
+      <p>这个动作只用了几秒钟：<strong>你先看一件事，再决定怎么做。</strong>天色阴沉，就带伞；太阳明晃晃，就空手走。你从来没有在心里列过表格，也没犹豫过第三种可能。</p>
+      <p>今天要让电脑学会的，就是这个动作。它不会看天，但它能听懂你给它的一句话：如果这句话是对的，走这条路；不对，走另一条路。</p>
+      <p>这件事有个名字，叫判断。你其实早就会了，只是今天要把它说给电脑听。</p>
+    </section>
+
+    <section class="concepts" aria-label="这一课的知识点">
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">1</span>
+        <h3>条件，是一句能回答“是”或“不是”的话</h3>
+        <p>路口的红绿灯只有一个规矩：绿的，走；不是绿的，就停。灯的颜色就是<strong>条件</strong>。</p>
+        <p>电脑也只认两个答案：<strong>真</strong>和<strong>假</strong>，就是“是”和“不是”。你给它一句能回答“是或不是”的话，它才敢往下走。</p>
+        <p>所以你会怎么做：在 <code>if</code> 后面的圆括号里，写一句能回答“是或不是”的话。</p>
+        <div class="example"><strong>例子：</strong><code>if (温度 &gt;= 30)</code> 的意思是——如果今天的温度大于或者等于 30 度。这句话要么对，要么不对，不会含糊。</div>
+      </article>
+
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">2</span>
+        <h3>三条横线 <code>===</code> 是比较，一条横线 <code>=</code> 是放下</h3>
+        <p>把一条横线想成贴标签：你把一个值写下来，贴上名字，收进盒子。<code>let 温度 = 32;</code> 就是“这个盒子里放 32”。</p>
+        <p>三条横线是问一句：“这俩一样吗？”它只回答真或者假，不改动任何东西。</p>
+        <p>所以你会怎么做：起名字、放值的时候用一条横线；在 <code>if</code> 的圆括号里比较的时候，用三条。这个地方写错，电脑不会喊，它只会安静地做另一件事，要多留个心眼。</p>
+        <div class="example"><strong>例子：</strong><code>let 温度 = 32;</code> 是放下；<code>if (温度 === 32)</code> 是比较。把这两行的横线数数看。</div>
+      </article>
+
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">3</span>
+        <h3><code>else</code> 是另一条路，两条路只走一条</h3>
+        <p>带伞或者不带伞，你不会两样都做。<code>if</code> 和 <code>else</code> 也是这样：条件是真的，走 <code>if</code> 那一段；条件不是真的，才轮到 <code>else</code>。</p>
+        <p>永远只有一段会执行，另一段就像没写过一样。</p>
+        <p>所以你会怎么做：把“条件成立时做什么”写在 <code>if</code> 后面的花括号里，把“其余情况做什么”写在 <code>else</code> 后面的花括号里。</p>
+        <div class="example"><strong>例子：</strong>温度是 32 度时，走的是 <code>if</code> 那一段，打印“开空调。”；把温度改成 25，走的就是 <code>else</code> 那一段，打印“开窗，让风进来。”——下面的动手区可以亲手试。</div>
+      </article>
+    </section>
+
+    <aside class="tip">改完一定要点 <strong>▶ 运行看看</strong>，代码不会自己动。想确认判断真的在起作用，把 <code>32</code> 改成 <code>25</code> 再运行一次：结果换成了另一句，就说明它真的在选。</aside>
+
+    <aside class="mistake">
+      如果点了运行，结果里跳出“出错啦：Unexpected token”这样的话，先看两处：<code>if</code> 后面的圆括号有没有写全，花括号是不是一左一右成对。还有，<code>else</code> 必须紧跟在 <code>if</code> 那一段的右花括号后面，中间不能插别的东西。少一个括号，电脑就整段都读不懂了。
+    </aside>
+
+    <section class="playground" data-playground="js" aria-label="动手试一试">
+      <div class="pg-head">
+        <p class="pg-title">✍️ 动手区：把温度改成你今天的感觉</p>
+        <div class="pg-actions">
+          <button class="btn btn-run" type="button" data-run>▶ 运行看看</button>
+          <button class="btn btn-quiet" type="button" data-reset>恢复原样</button>
+        </div>
+      </div>
+      <label class="sr-only" for="pg-1">代码编辑区</label>
+      <textarea class="pg-editor" id="pg-1" spellcheck="false" rows="11">let 温度 = 32;
+
+console.log("今天 " + 温度 + " 度。");
+
+if (温度 >= 30) {
+  console.log("开空调。");
+} else {
+  console.log("开窗，让风进来。");
+}</textarea>
+      <div class="pg-output">
+        <p class="pg-output-label">运行结果</p>
+        <iframe class="pg-frame" title="运行结果预览" sandbox="allow-scripts"></iframe>
+        <pre class="pg-console" hidden></pre>
+      </div>
+      <p class="pg-status" role="status"></p>
+    </section>
+
+    <aside class="mistake">
+      如果你明明写的是“超过 30 度开空调”，结果却总是走开空调那一条，先看圆括号里有没有写成一条横线：<code>if (温度 = 30)</code>。电脑不会报错，它会直接把 30 放进“温度”里，然后当作“是真的”，永远走同一条路。这不是你笨，是两种横线长得太像——写完用手指点着数一遍就好。
+    </aside>
+
+    <section class="task" aria-label="小任务">
+      <h3>今天的小任务</h3>
+      <p>写一个“今天要不要带伞”的判断，让电脑替你看一眼天，再替你决定。</p>
+      <ol>
+        <li>把第一行和下面那句“今天 32 度。”一起删掉，换成 <code>let 下雨 = true;</code>。这就是今天的天气。</li>
+        <li>把 <code>if</code> 后面的圆括号改成 <code>下雨 === true</code>，两条路里的句子改成“带伞。”和“不用带伞，走吧。”</li>
+        <li>点“运行看看”；然后把 <code>true</code> 改成 <code>false</code>，点第二次运行。</li>
+      </ol>
+      <ul class="checklist">
+        <li>第一次运行，结果里出现了“带伞。”</li>
+        <li>改成 <code>false</code> 以后，出来的换成了另一句。</li>
+      </ul>
+    </section>
+
+    <section class="quizzes" aria-label="小测验">
+      <h2>三道小题，检查一下</h2>
+      <p class="muted">答错没关系，可以换个答案再试，也可以回到上面再看一眼。</p>
+
+      <div class="quiz" data-quiz>
+        <p class="quiz-q"><span class="quiz-no">第 1 题</span><code>=</code> 和 <code>===</code>，区别在哪？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" type="button" data-correct="false">一个写在左边，一个写在右边，用法一样</button>
+          <button class="quiz-opt" type="button" data-correct="true"><code>===</code> 是问“一样吗”，<code>=</code> 是把这个值放进去</button>
+          <button class="quiz-opt" type="button" data-correct="false"><code>===</code> 给数字用，<code>=</code> 给文字用</button>
+        </div>
+        <p class="quiz-feedback" role="status" data-ok="三条横线是“问”，一条横线是“放”。问的只回答真或假，放的会改掉盒子里的东西。" data-no="想一想：给盒子贴名字、把值放进去，用的是哪种横线？"></p>
+      </div>
+
+      <div class="quiz" data-quiz>
+        <p class="quiz-q"><span class="quiz-no">第 2 题</span>判断的条件，写在哪儿？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" type="button" data-correct="false">写在 <code>if</code> 上面的另一行</button>
+          <button class="quiz-opt" type="button" data-correct="true">写在 <code>if</code> 后面的圆括号里</button>
+          <button class="quiz-opt" type="button" data-correct="false">写在 <code>else</code> 里面，电脑会自己找</button>
+        </div>
+        <p class="quiz-feedback" role="status" data-ok="圆括号那一对，就是专门装条件的地方。电脑先看它，再决定走哪条路。" data-no="看看动手区：判断的那句话，是夹在哪一对符号中间的？"></p>
+      </div>
+
+      <div class="quiz" data-quiz>
+        <p class="quiz-q"><span class="quiz-no">第 3 题</span><code>else</code> 那一部分，什么时候执行？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" type="button" data-correct="true">圆括号里的条件不成立，是假的时候</button>
+          <button class="quiz-opt" type="button" data-correct="false">不管条件成不成立，都执行一次</button>
+          <button class="quiz-opt" type="button" data-correct="false">只有第一段写错的时候才执行</button>
+        </div>
+        <p class="quiz-feedback" role="status" data-ok="两条路只走一条：条件真，走 if；条件假，才轮到 else。" data-no="想想带伞那天和晴天那天，你各走了哪一条路？"></p>
+      </div>
+    </section>
+
+    <section class="recap" aria-label="这一课的三句话">
+      <h3>用三句话记住这一课</h3>
+      <ul>
+        <li><code>if</code> 是一道选择题：条件写在圆括号里，成立就走第一段。</li>
+        <li>三条横线 <code>===</code> 是比较，一条横线 <code>=</code> 是放下。横线要数清楚。</li>
+        <li>条件不成立，才轮到 <code>else</code>。两条路，一次只走一条。</li>
+      </ul>
+    </section>
+
+    <nav class="lesson-nav" aria-label="课程导航">
+      <div class="nav-pair">
+        <a class="btn btn-ghost" href="lesson-3.html">← 上一课</a>
+      </div>
+      <button class="btn btn-primary" type="button" data-complete="4">我学完这一课了</button>
+      <div class="nav-pair">
+        <a class="btn btn-ghost" href="lesson-5.html">下一课 →</a>
+      </div>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html">
+            <span class="brand-mark" aria-hidden="true">她</span>
+            <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
+          </a>
+          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15 分钟，不用背，只要动手改一改。</p>
+        </div>
+        <div class="footer-col">
+          <h3>课程</h3>
+          <ul>
+            <li><a href="../index.html#course">全部 7 课</a></li>
+            <li><a href="../start.html">第一次来，怎么学</a></li>
+            <li><a href="../project.html">结业作品</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>帮助</h3>
+          <ul>
+            <li><a href="../help.html">常见问题</a></li>
+            <li><a href="../help.html#accessibility">无障碍与朗读说明</a></li>
+            <li><a href="../help.html#settings">字号、深色、动画</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>她学编程 · 一个不需要注册、不收集你信息的公益学习站</span>
+        <span>学得慢一点，也没关系。</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/app.js" defer></script>
+</body>
+</html>

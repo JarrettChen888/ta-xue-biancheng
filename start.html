@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第一次来，怎么学｜她学编程</title>
+  <meta name="description" content="三分钟了解这门课怎么用：需要准备什么、一次学多久、页面上的按钮是做什么的、学会了会怎样。">
+  <meta name="theme-color" content="#faf5ee">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script>
+    (function () {
+      try {
+        var s = JSON.parse(localStorage.getItem("hx.settings") || "{}");
+        var root = document.documentElement;
+        var sizes = [18, 20, 22, 25];
+        root.style.fontSize = (sizes[s.font] || 20) + "px";
+        root.setAttribute("data-theme", s.theme || (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+        if (s.motion) root.setAttribute("data-motion", s.motion);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">她</span>
+        <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="index.html#course">课程</a>
+        <a href="start.html" aria-current="page">怎么学</a>
+        <a href="help.html">帮助与无障碍</a>
+      </nav>
+      <div class="ctrl-group" role="group" aria-label="阅读设置">
+        <button class="ctrl" type="button" data-font="down" aria-label="A− 缩小字号" title="缩小字号">A−</button>
+        <button class="ctrl" type="button" data-font="up" aria-label="A＋ 放大字号" title="放大字号">A＋</button>
+        <button class="ctrl" type="button" data-theme-toggle aria-label="☾ 切换深色模式" aria-pressed="false" title="深色模式">☾</button>
+        <button class="ctrl" type="button" data-motion-toggle aria-label="✳ 减少动画效果" aria-pressed="false" title="减少动画">✳</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="wrap reading">
+    <nav class="crumbs" aria-label="当前位置">
+      <a href="index.html">首页</a> ／ 怎么学
+    </nav>
+
+    <header class="lesson-head">
+      <p class="label">怎么学 · 三分钟读完</p>
+      <h1>第一次来，先花三分钟看看这里</h1>
+      <p class="lede">不用从头读到尾。知道下面这几件事，你就可以开始了。</p>
+    </header>
+
+    <section aria-labelledby="prepare-title">
+      <h2 id="prepare-title">一、你只需要准备三样东西</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <span class="card-num" aria-hidden="true">1</span>
+          <h3>一台电脑</h3>
+          <p>能打开网页的电脑就行，不用买新的。手机也能看课、听朗读，但动手练习时，键盘打字会舒服很多。</p>
+        </article>
+        <article class="card">
+          <span class="card-num" aria-hidden="true">2</span>
+          <h3>一个浏览器</h3>
+          <p>Chrome、Edge、Safari 都可以。用你平时上网的那个，不用装任何软件。</p>
+        </article>
+        <article class="card">
+          <span class="card-num" aria-hidden="true">3</span>
+          <h3>15 分钟</h3>
+          <p>一次只学一课，学完就停。中途被打断也没关系，关掉页面，进度会记住。</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="rhythm-title">
+      <h2 id="rhythm-title">二、一次只学一课，学完就停</h2>
+      <p>每一课都是同样的五步。熟悉之后，你闭着眼也知道下一步做什么。</p>
+      <ol>
+        <li><strong>读一个小故事。</strong>先弄明白这一课要解决生活里的什么问题，再学知识。</li>
+        <li><strong>在动手区改一改。</strong>不用从空白开始写。改一个字，点“运行看看”，页面会马上告诉你结果。</li>
+        <li><strong>做三道小题。</strong>答错不要紧，它会给你提示，可以换个答案再试。</li>
+        <li><strong>读一遍“三句话回顾”。</strong>能用自己的话说出来，就真的懂了。</li>
+        <li><strong>点“我学完这一课了”。</strong>首页的花瓣会开一片，然后你就可以关掉页面去休息了。</li>
+      </ol>
+      <aside class="tip">不要一次学三课，也不要逼自己“今天必须学完”。学习编程最有效的方式是：每天一点点，明天还回来。</aside>
+    </section>
+
+    <section aria-labelledby="stuck-title">
+      <h2 id="stuck-title">三、遇到这些情况，都很正常</h2>
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>看不懂</h3>
+          <p>先点“读给我听”，让耳朵再过一遍；或者把这一课关掉，明天再看。同一个内容看第二遍，会突然明白。</p>
+        </article>
+        <article class="card">
+          <h3>运行了没反应，或者出现奇怪的字</h3>
+          <p>看运行结果下面那行小字，它通常会告诉你原因。实在不行，点“恢复原样”，从头再来一次。</p>
+        </article>
+        <article class="card">
+          <h3>学完就忘</h3>
+          <p>忘是正常的，不用背。每一课都留在这里，用到的时候翻回来查，查三次就记住了。</p>
+        </article>
+        <article class="card">
+          <h3>今天只学了五分钟</h3>
+          <p>那也算学了。五分钟的坚持，比“等有空一次学三小时”更靠得住。</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="controls-title">
+      <h2 id="controls-title">四、页面右上角，四个小按钮</h2>
+      <p>它们只管一件事：让你看得更舒服。设置会记住，下次打开还是你选的样子。</p>
+      <div class="settings-demo">
+        <span class="badge">A− 字小一点</span>
+        <span class="badge">A＋ 字大一点</span>
+        <span class="badge">☾ 换成深色背景</span>
+        <span class="badge">✳ 减少动画</span>
+      </div>
+      <p>课程页面里还有一个虚线小按钮“🔊 读给我听”，它会用普通话把这课的故事读给你听。不想听的时候，按一下 Esc 就停。</p>
+      <aside class="note">如果你习惯用键盘：按 Tab 键在页面上的按钮和链接之间移动，按 Enter 确认。页面最上面的“跳到正文”，就是给键盘准备的。</aside>
+    </section>
+
+    <section aria-labelledby="after-title">
+      <h2 id="after-title">五、七课学完，你会得到什么</h2>
+      <ul>
+        <li>一个自己做的网页，可以给家人看，可以设成浏览器主页。</li>
+        <li>看得懂网页背后那些“尖括号”在做什么，不再觉得它神秘。</li>
+        <li>知道“变量、判断、循环、函数”这几个词是什么意思——它们是所有编程语言的通用词汇。</li>
+        <li>如果还想往下学，你会知道该往哪个方向走。不着急，先学完这七课再说。</li>
+      </ul>
+      <aside class="note">你的学习进度只保存在这台电脑的浏览器里。换电脑、换浏览器，或者清除了浏览数据，进度就会从头开始。所以建议你固定用同一台电脑、同一个浏览器来学。</aside>
+    </section>
+
+    <section class="closing">
+      <h2>准备好了吗？</h2>
+      <p>从第 0 课开始，第一课只有 15 分钟。</p>
+      <div class="cta-row center">
+        <a class="btn btn-primary btn-lg" href="lessons/lesson-0.html" data-next-lesson>从第 0 课开始 →</a>
+        <a class="btn btn-ghost btn-lg" href="help.html">还有问题，看看帮助</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">她</span>
+            <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
+          </a>
+          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15 分钟，不用背，只要动手改一改。学得慢一点，也没关系。</p>
+        </div>
+        <div class="footer-col">
+          <h3>课程</h3>
+          <ul>
+            <li><a href="lessons/lesson-0.html">第 0 课 · 认识代码</a></li>
+            <li><a href="index.html#course">全部 7 课</a></li>
+            <li><a href="project.html">结业作品</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>帮助</h3>
+          <ul>
+            <li><a href="start.html">第一次来，怎么学</a></li>
+            <li><a href="help.html">常见问题</a></li>
+            <li><a href="help.html#accessibility">无障碍与朗读说明</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>她学编程 · 一个不需要注册、不收集你信息的公益学习站</span>
+        <span>学得慢一点，也没关系。</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

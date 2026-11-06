@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>结业作品 · 我家的餐桌｜她学编程</title>
+  <meta name="description" content="把前六课学过的 HTML 和 CSS 用起来，一步一步做出属于你家的餐桌菜单网页，保存到电脑，还能发给家人看。">
+  <meta name="theme-color" content="#faf5ee">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script>
+    (function () {
+      try {
+        var s = JSON.parse(localStorage.getItem("hx.settings") || "{}");
+        var root = document.documentElement;
+        var sizes = [18, 20, 22, 25];
+        root.style.fontSize = (sizes[s.font] || 20) + "px";
+        root.setAttribute("data-theme", s.theme || (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+        if (s.motion) root.setAttribute("data-motion", s.motion);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body class="lesson-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">她</span>
+        <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="index.html#course" aria-current="true">课程</a>
+        <a href="start.html">怎么学</a>
+        <a href="help.html">帮助与无障碍</a>
+      </nav>
+      <div class="ctrl-group" role="group" aria-label="阅读设置">
+        <button class="ctrl" type="button" data-font="down" aria-label="A− 缩小字号" title="缩小字号">A−</button>
+        <button class="ctrl" type="button" data-font="up" aria-label="A＋ 放大字号" title="放大字号">A＋</button>
+        <button class="ctrl" type="button" data-theme-toggle aria-label="☾ 切换深色模式" aria-pressed="false" title="深色模式">☾</button>
+        <button class="ctrl" type="button" data-motion-toggle aria-label="✳ 减少动画效果" aria-pressed="false" title="减少动画">✳</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="course-progress" role="progressbar" aria-label="课程学习进度" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0">
+    <span class="course-progress-bar"></span>
+  </div>
+
+  <main id="main" class="wrap reading">
+    <nav class="crumbs" aria-label="当前位置">
+      <a href="index.html">首页</a> ／ 结业作品
+    </nav>
+
+    <header class="lesson-head">
+      <p class="label">结业作品 · 约 30 分钟</p>
+      <h1>我家的餐桌</h1>
+      <p class="lede">把学过的本事拼起来，做一张只属于你家餐桌的菜单网页。</p>
+      <ul class="lesson-meta">
+        <li>难度：学完前六课</li>
+        <li>需要准备：一台能上网的电脑，和几道你家常做的菜</li>
+        <li>做坏了不要紧，可以随时回到这一页重来</li>
+      </ul>
+      <div class="goal-box" id="project-goal">
+        <h2>做完这个作品，你会</h2>
+        <ul>
+          <li>做出一个能存到电脑里、能双击打开的“我家的餐桌”网页</li>
+          <li>会改菜名、改颜色、加一道菜、加一句家常话</li>
+          <li>会把网页存成文件，发给家人看</li>
+        </ul>
+      </div>
+      <button class="btn-speak" type="button" data-speak="project-intro">🔊 读给我听</button>
+    </header>
+
+    <section class="story" id="project-intro">
+      <p class="story-open">七课之前，你打开这个网站的时候，可能还担心：这不是我这个年纪学的东西吧。</p>
+      <p>现在你手里有几样很实在的本事：能给文字套上标签，让它变成标题和段落；能改颜色和间距，让页面好看；能让电脑判断、重复、把步骤打包。</p>
+      <p>这些东西加起来，够做出一个真正能给家人看的东西了。</p>
+      <p>今天要做的，是一张“我家的餐桌”：你家常做的几道菜，配上一两句只有你们家才懂的话。不用像饭店的菜单，像你家就行。</p>
+      <p>它不会是一个练习。做完，它会变成你电脑里的一个文件，可以双击打开，也可以发给别人。</p>
+    </section>
+
+    <h2>你已经会的东西</h2>
+    <p class="muted">做这张菜单不需要新学什么，把这三样拿出来用就行。</p>
+
+    <section class="concepts" aria-label="你已经会的东西">
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">1</span>
+        <h3>你会用标签，给文字套上外套</h3>
+        <p>标题用 <code>h1</code> 和 <code>h2</code>，段落用 <code>p</code>，列表用 <code>ul</code> 和 <code>li</code>。一个标签一左一右，把字夹在中间。</p>
+        <p>这一张菜单，骨头上就是这些标签：一个标题、几道菜、一句收尾的话。</p>
+        <div class="example"><strong>例子：</strong><code>&lt;h2&gt;红烧肉&lt;/h2&gt;</code> 是菜名，紧跟着的 <code>&lt;p&gt;</code> 是一句说明。你在第 1 课就写过了。</div>
+      </article>
+
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">2</span>
+        <h3>你会改颜色和字号，让页面像你家的</h3>
+        <p>同一段文字，底色换成米黄、菜名换成枣红，气质就完全不同。第 2 课和第 3 课改的就是这些。</p>
+        <p>颜色有两种写法：一种是 <code>#8c3b2f</code> 这样的色号，另一种是 <code>orange</code>、<code>seagreen</code> 这样的英文名字。两种都能用。</p>
+        <div class="example"><strong>例子：</strong><code>color: #8c3b2f;</code> 是字色，<code>background: #f3e9da;</code> 是底色。颜色改一处，整张菜单的感觉就跟着变。</div>
+      </article>
+
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">3</span>
+        <h3>你还会让电脑听指挥</h3>
+        <p>第 4 到第 6 课，你学了判断、循环、函数：<code>if</code> 会选路，<code>for</code> 会重复，<code>function</code> 能把一整套步骤打包。</p>
+        <p>这张菜单暂时用不上它们。但等你以后想让电脑帮你排一周的菜、算一算来几个人要做多少，它们就是那时候的工具。</p>
+        <div class="example"><strong>例子：</strong>今天不写一行 JavaScript，光靠前两样，就够把这件作品做完了。</div>
+      </article>
+    </section>
+
+    <h2>先看看整张菜单</h2>
+    <p>下面是第一版，已经是一张能用的菜单了。点一次“运行看看”，先看见它，再动手改。</p>
+
+    <section class="playground" data-playground="html" aria-label="动手试一试">
+      <div class="pg-head">
+        <p class="pg-title">✍️ 动手区：这是第一版菜单，下面四步就是把它改成你家的</p>
+        <div class="pg-actions">
+          <button class="btn btn-run" type="button" data-run>▶ 运行看看</button>
+          <button class="btn btn-quiet" type="button" data-reset>恢复原样</button>
+        </div>
+      </div>
+      <label class="sr-only" for="pg-1">代码编辑区</label>
+      <textarea class="pg-editor" id="pg-1" spellcheck="false" rows="18"><style>
+  body { margin: 0; padding: 20px; background: #f3e9da; }
+  .menu {
+    max-width: 560px; margin: 0 auto; padding: 30px;
+    background: #fffdf7; border: 1px solid #e3d3bd; border-radius: 14px;
+    font-family: "Songti SC", "SimSun", serif; color: #3a2b20;
+  }
+  .menu h1 { margin: 0; text-align: center; font-size: 30px; letter-spacing: 4px; color: #8c3b2f; }
+  .menu .date { margin: 10px 0 26px; text-align: center; font-size: 14px; color: #a08a72; }
+  .menu h2 { margin: 20px 0 4px; font-size: 19px; color: #8c3b2f; }
+  .menu p { margin: 0; font-size: 15px; line-height: 1.8; color: #5c4a3a; }
+  .menu .words { margin: 28px 0 0; padding-top: 18px; border-top: 1px solid #e3d3bd; text-align: center; color: #8c6a4a; }
+</style>
+
+<div class="menu">
+  <h1>我家的餐桌</h1>
+  <p class="date">星期日 · 四菜一汤</p>
+
+  <h2>红烧肉</h2>
+  <p>小火慢炖两个小时，出锅前把汁收一收。</p>
+
+  <h2>清炒时蔬</h2>
+  <p>菜市场当天买的最新鲜，蒜片爆香就下锅。</p>
+
+  <h2>番茄炒蛋</h2>
+  <p>番茄先炒出汁，再把炒好的蛋倒回去。</p>
+
+  <h2>凉拌黄瓜</h2>
+  <p>拍碎比切片入味，蒜和醋多放一点。</p>
+
+  <h2>冬瓜排骨汤</h2>
+  <p>汤要清，火要小，盐最后才放。</p>
+
+  <p class="words">人齐了，就开饭。</p>
+</div></textarea>
+      <div class="pg-output">
+        <p class="pg-output-label">运行结果</p>
+        <iframe class="pg-frame" title="运行结果预览" sandbox="allow-scripts"></iframe>
+        <pre class="pg-console" hidden></pre>
+      </div>
+      <p class="pg-status" role="status"></p>
+    </section>
+
+    <aside class="tip">每改一处，就点一次 <strong>▶ 运行看看</strong>。改坏了不用怕：点“恢复原样”，它就回到第一版。你现在做的每一件事，都是在改一个可以随时退回的草稿。</aside>
+
+    <h2>四步，把它改成你家的</h2>
+    <p>一步一步来，每做完一步都点一次运行。四步都做完，这张菜单就是你家独有的了。</p>
+
+    <section class="concepts" aria-label="四个自改步骤">
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">1</span>
+        <h3>第一步：改菜名，换成你家真的会做的菜</h3>
+        <p>找到 <code>&lt;h2&gt;红烧肉&lt;/h2&gt;</code>，把“红烧肉”三个字换成你家常做的那道。它下面那一行 <code>&lt;p&gt;</code> 里的说明也一起改掉。</p>
+        <p>五道菜不用全换，换成三四道你最想写的就行。真实比齐全重要。</p>
+        <div class="example"><strong>例子：</strong><pre><code>&lt;h2&gt;糖醋排骨&lt;/h2&gt;
+&lt;p&gt;排骨先焯一遍水，醋分两次放，第二次出锅前再淋。&lt;/p&gt;</code></pre></div>
+      </article>
+
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">2</span>
+        <h3>第二步：改颜色，换成你喜欢的</h3>
+        <p>最上面那一段 <code>&lt;style&gt;</code> 里，管颜色的只有几行。先找 <code>background: #f3e9da;</code>，这是整页的底色；再找两处 <code>color: #8c3b2f;</code>，这是标题和菜名的颜色。</p>
+        <p>不确定换成什么，就先把 <code>#f3e9da</code> 试成 <code>#eef4ea</code>（淡淡的豆绿）。</p>
+        <div class="example"><strong>例子：</strong>菜名想换成一抹暖色，就把 <code>color: #8c3b2f;</code> 改成 <code>color: #b25b2a;</code>。只改后面那串色号，前面的字不要动。</div>
+      </article>
+
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">3</span>
+        <h3>第三步：加一道菜</h3>
+        <p>找到最后一道汤，在它那行 <code>&lt;p&gt;</code> 的下面，空一行，照样子写两行新的：一行菜名，一行说明。</p>
+        <p>加完点一次运行，菜单就长了一截。</p>
+        <div class="example"><strong>例子：</strong><pre><code>&lt;h2&gt;蒜蓉西兰花&lt;/h2&gt;
+&lt;p&gt;水开了再下锅，捞出来过一遍凉水，颜色才绿。&lt;/p&gt;</code></pre></div>
+      </article>
+
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">4</span>
+        <h3>第四步：加一句家常话</h3>
+        <p>找到最后那行 <code>&lt;p class="words"&gt;</code>，把“人齐了，就开饭。”换成你家饭桌上真的会说的话。</p>
+        <p>这一句是整张菜单里最像你的一部分，别抄我的。</p>
+        <div class="example"><strong>例子：</strong>“锅里还有，别客气。”或者“人齐了就动筷，别等菜凉。”——写你听过的那一句。</div>
+      </article>
+    </section>
+
+    <aside class="mistake">
+      如果你改完点运行，菜单突然长得不对——菜名变小了、挤在一起，或者后面的菜不见了，先看两处：菜名那一行有没有成对的 <code>&lt;h2&gt;</code> 和 <code>&lt;/h2&gt;</code>，说明那一行有没有成对的 <code>&lt;p&gt;</code> 和 <code>&lt;/p&gt;</code>。少一个结尾，后面的内容就会被吞进上一个标签里。这不是你笨，是这个写法要求两边都写上。
+    </aside>
+
+    <section class="task" aria-label="交作品前">
+      <h3>交作品前，检查这三件事</h3>
+      <p>不用做得完美，但这三件要诚实。</p>
+      <ol>
+        <li>五道菜里，至少有三道是你家真的会做的。</li>
+        <li>这句家常话，是你家人真的会说的。</li>
+        <li>你把每一处改动都点过运行，看到结果对上了。</li>
+      </ol>
+      <ul class="checklist">
+        <li>我改过菜名，也改过颜色，两次都看到了变化。</li>
+        <li>我加了一道菜，菜单变长了。</li>
+        <li>页面上的字，没有一处是我不想让家人看到的。</li>
+      </ul>
+    </section>
+
+    <h2>怎么保存，怎么分享</h2>
+    <p>现在菜单还只在浏览器里。要让它变成你电脑上的一个文件，得把它存下来。这件事你只做一次，以后随时能打开。</p>
+
+    <section class="task" aria-label="保存和分享">
+      <h3>把菜单存成文件，发给家人看</h3>
+      <ol>
+        <li>在电脑上打开“记事本”（Windows）或“文本编辑”（Mac）。Mac 上先点一下“格式 → 制作纯文本”，不然它会存成带格式的文档。</li>
+        <li>把动手区里的代码整段选中、复制，粘贴进去。一个字都不用改。</li>
+        <li>保存的时候，文件名写“我家的餐桌.html”，编码选 UTF-8。如果对话框里有“文件类型”，选“所有文件”，免得它悄悄给你加上一个 .txt。</li>
+        <li>找到存好的这个文件，双击。它应该会用浏览器打开，和你刚才在动手区看到的一模一样。</li>
+        <li>想发给家人：用微信的“文件传输助手”发出去，或者拷到家人的电脑上。手机上微信里的网页文件常常打不开，让家人用电脑接收、双击打开，最稳。</li>
+      </ol>
+      <ul class="checklist">
+        <li>我电脑上有一个叫“我家的餐桌.html”的文件，双击能打开。</li>
+        <li>家里有人收到了这个文件，并且看到了这张菜单。</li>
+      </ul>
+    </section>
+
+    <aside class="note">
+      保存的时候，“编码”这一项要选 UTF-8。选错了，菜单上的中文会变成一堆看不懂的方块和符号。真变成这样也不用重写：重新存一次，编码换成 UTF-8 就好。
+    </aside>
+
+    <aside class="mistake">
+      如果双击打开，看到的是一整页代码，而不是菜单，说明这个文件的后缀不是 .html，多半是保存时被加上了 .txt。把文件名改成“我家的餐桌.html”，再双击一次。如果电脑把后缀藏起来了，就在文件管理器的“查看”设置里，打开“显示文件扩展名”。
+    </aside>
+
+    <section class="closing">
+      <h2>这张菜单，是你做出来的</h2>
+      <p>不是照着抄了一遍，是你知道每一行在做什么，然后换成了你自己的菜、自己的颜色、自己的话。</p>
+      <p>七课之前，你也许觉得这是年轻人学的东西。现在你电脑里有一个能双击打开、能给家人看的网页。这就够了，剩下的慢慢来。</p>
+      <div class="cta-row">
+        <a class="btn btn-primary btn-lg" href="index.html">回到课程首页</a>
+        <a class="btn btn-ghost" href="lessons/lesson-6.html">再看一遍第 6 课</a>
+      </div>
+    </section>
+
+    <section class="recap" aria-label="这件作品的三句话">
+      <h3>做完这件作品，记住三句话</h3>
+      <ul>
+        <li>一个网页，就是一段写在文件里、带着标签的文字。</li>
+        <li>你不需要会全部，你只要会改：改一处，运行，看结果。</li>
+        <li>做给家人看的东西，不用完美，真实就够。</li>
+      </ul>
+    </section>
+
+    <nav class="lesson-nav" aria-label="课程导航">
+      <div class="nav-pair">
+        <a class="btn btn-ghost" href="lessons/lesson-6.html">← 第 6 课</a>
+      </div>
+      <a class="btn btn-primary" href="index.html">回到课程首页</a>
+      <div class="nav-pair">
+        <a class="btn btn-ghost" href="help.html">遇到问题？看帮助</a>
+      </div>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">她</span>
+            <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
+          </a>
+          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15 分钟，不用背，只要动手改一改。</p>
+        </div>
+        <div class="footer-col">
+          <h3>课程</h3>
+          <ul>
+            <li><a href="index.html#course">全部 7 课</a></li>
+            <li><a href="start.html">第一次来，怎么学</a></li>
+            <li><a href="project.html">结业作品</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>帮助</h3>
+          <ul>
+            <li><a href="help.html">常见问题</a></li>
+            <li><a href="help.html#accessibility">无障碍与朗读说明</a></li>
+            <li><a href="help.html#settings">字号、深色、动画</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>她学编程 · 一个不需要注册、不收集你信息的公益学习站</span>
+        <span>学得慢一点，也没关系。</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

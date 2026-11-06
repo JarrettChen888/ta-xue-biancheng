@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第 5 课 · 重复的事，交给循环｜她学编程</title>
+  <meta name="description" content="零基础第五课：用抄通讯录和洗衣机的日常画面，弄懂 for 循环怎么把同一件事重复很多遍，再让电脑替你打印十句祝福。">
+  <meta name="theme-color" content="#faf5ee">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <script>
+    (function () {
+      try {
+        var s = JSON.parse(localStorage.getItem("hx.settings") || "{}");
+        var root = document.documentElement;
+        var sizes = [18, 20, 22, 25];
+        root.style.fontSize = (sizes[s.font] || 20) + "px";
+        root.setAttribute("data-theme", s.theme || (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+        if (s.motion) root.setAttribute("data-motion", s.motion);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body class="lesson-page" data-lesson="5">
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">她</span>
+        <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="../index.html#course" aria-current="true">课程</a>
+        <a href="../start.html">怎么学</a>
+        <a href="../help.html">帮助与无障碍</a>
+      </nav>
+      <div class="ctrl-group" role="group" aria-label="阅读设置">
+        <button class="ctrl" type="button" data-font="down" aria-label="A− 缩小字号" title="缩小字号">A−</button>
+        <button class="ctrl" type="button" data-font="up" aria-label="A＋ 放大字号" title="放大字号">A＋</button>
+        <button class="ctrl" type="button" data-theme-toggle aria-label="☾ 切换深色模式" aria-pressed="false" title="深色模式">☾</button>
+        <button class="ctrl" type="button" data-motion-toggle aria-label="✳ 减少动画效果" aria-pressed="false" title="减少动画">✳</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="course-progress" role="progressbar" aria-label="课程学习进度" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0">
+    <span class="course-progress-bar"></span>
+  </div>
+
+  <main id="main" class="wrap reading">
+    <nav class="crumbs" aria-label="当前位置">
+      <a href="../index.html">首页</a> ／ 第 5 课
+    </nav>
+
+    <header class="lesson-head">
+      <p class="label">第 5 课 · 约 25 分钟</p>
+      <h1>重复的事，交给循环</h1>
+      <p class="lede">这一课只学一件事：让电脑把同一件事，替你重复很多遍。</p>
+      <ul class="lesson-meta">
+        <li>难度：零基础</li>
+        <li>需要准备：一台能上网的电脑，和一点点好奇</li>
+        <li>可以随时停下，进度会自动记住</li>
+      </ul>
+      <div class="goal-box" id="lesson-goal">
+        <h2>学完这一课，你会</h2>
+        <ul>
+          <li>能看懂 <code>for</code> 那一行里三小段话各管什么</li>
+          <li>能让同一句话在页面上重复出现很多遍</li>
+          <li>能让电脑连续打印 10 句祝福，一行一句</li>
+        </ul>
+      </div>
+      <button class="btn-speak" type="button" data-speak="lesson-intro">🔊 读给我听</button>
+    </header>
+
+    <section class="story" id="lesson-intro">
+      <p class="story-open">整理旧抽屉那年，你翻出一本通讯录，封皮都磨白了，里面一页一个人名，后面跟着电话。</p>
+      <p>那是年轻时候抄的。没有手机，也没有表格可以复制，就一页一页往下写。抄到第二十几个人，手腕酸了，字开始歪。</p>
+      <p>抄错一个数字，那一页就白抄了，得撕下来重写。你当时肯定想过：要是能写一遍，让它自己往下走就好了。</p>
+      <p>其实你一直在做“循环”：翻页、写一行、再翻页，直到写完。中间不用重新想一遍，也不用重新下决心。</p>
+      <p>今天要让电脑学的，就是这件事。你把要重复的那一行写一遍，告诉它重复几次，它替你跑完，一次也不会漏。</p>
+    </section>
+
+    <section class="concepts" aria-label="这一课的知识点">
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">1</span>
+        <h3>循环，是“同一件事，按规矩重复”</h3>
+        <p>洗衣机洗衣服，你要做的只是按下开始、设好十五分钟。剩下的时间里，滚筒自己转过来、转回去，转到定时器响了它才停。</p>
+        <p>你没有手摇每一圈，也没有站在旁边数。洗衣机记住的是三件事：从哪儿开始、转到什么时候停、每一圈怎么走。</p>
+        <p>所以你会怎么做：把这三件事写进 <code>for</code> 后面的圆括号里，用两个分号隔开。</p>
+        <div class="example"><strong>例子：</strong><code>for (let i = 1; i &lt;= 5; i++)</code> 可以读成——从 1 开始；只要还没超过 5 就继续；每跑完一遍，加 1。</div>
+      </article>
+
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">2</span>
+        <h3><code>i</code> 是计数器，<code>i++</code> 是“加一”</h3>
+        <p>把 <code>i</code> 想成手里的小计数器。第一遍它指着 1，第二遍指着 2，第三遍指着 3，一直到 5。</p>
+        <p><code>i++</code> 就是“把计数器往前拨一格”。没有它，计数器永远停在第一格，循环就不知道该在什么时候收手。</p>
+        <p>所以你会怎么做：写循环的时候，别漏掉最后那一小段，它是让循环往前走的。</p>
+        <div class="example"><strong>例子：</strong>跑完五遍，输出里的数字会从 1 排到 5。你改一改 <code>i &lt;= 5</code> 里的 5，这个数字就跟着变。</div>
+      </article>
+
+      <article class="concept">
+        <span class="concept-num" aria-hidden="true">3</span>
+        <h3>要重复的那几行，写在花括号里面</h3>
+        <p>洗衣机只转滚筒，不会顺便把厨房的灯也关了。循环也一样：花括号里写什么，它才重复什么。</p>
+        <p>花括号外面的代码只做一次，花括号里面的才跟着转。</p>
+        <p>所以你会怎么做：先写一句你要重复的话，把它放进花括号，再用 <code>for</code> 把花括号管起来。</p>
+        <div class="example"><strong>例子：</strong>动手区里那句 <code>console.log</code> 在花括号里，所以打印 5 次；要是把它挪到花括号外面，就只打印 1 次。</div>
+      </article>
+    </section>
+
+    <aside class="mistake">
+      如果点了运行，结果里跳出一句“出错啦”，先看花括号：左边一个、右边一个，要成对。花括号漏了一个，电脑就不知道哪些行该重复，整段都会读不懂。它不是嫌你写得不好，它只是没看到结尾在哪儿。
+    </aside>
+
+    <aside class="tip">改的时候一次只动一处：先只改数字，看行数变没变；再改引号里的话。两处一起改，结果不对的时候，你就不知道是哪一处的问题了。</aside>
+
+    <section class="playground" data-playground="js" aria-label="动手试一试">
+      <div class="pg-head">
+        <p class="pg-title">✍️ 动手区：把要重复几遍的数字，改成你想要的</p>
+        <div class="pg-actions">
+          <button class="btn btn-run" type="button" data-run>▶ 运行看看</button>
+          <button class="btn btn-quiet" type="button" data-reset>恢复原样</button>
+        </div>
+      </div>
+      <label class="sr-only" for="pg-1">代码编辑区</label>
+      <textarea class="pg-editor" id="pg-1" spellcheck="false" rows="7">// 想让它重复几遍，就改下面那个 5
+for (let i = 1; i <= 5; i++) {
+  console.log("第 " + i + " 遍：记得喝水。");
+}</textarea>
+      <div class="pg-output">
+        <p class="pg-output-label">运行结果</p>
+        <iframe class="pg-frame" title="运行结果预览" sandbox="allow-scripts"></iframe>
+        <pre class="pg-console" hidden></pre>
+      </div>
+      <p class="pg-status" role="status"></p>
+    </section>
+
+    <aside class="mistake">
+      如果点了运行，输出框一直往下滚、整个页面像卡住了，别急——这是循环停不下来。最常见的两种写法：忘了写 <code>i++</code>，计数器一直停在 1；或者条件写成了永远成立的样子，比如 <code>i &gt;= 0</code>。电脑不是坏了，它只是太老实地照着你的话做。把这个页面关掉，重新打开，改回来就好。反过来，如果一行都没打印，看看条件是不是写反了，比如写成了 <code>i &gt;= 5</code>——第一遍就不成立，循环一次都没进去。
+    </aside>
+
+    <section class="task" aria-label="小任务">
+      <h3>今天的小任务</h3>
+      <p>让电脑连续打印 10 句祝福，一行一句，一句都别漏。</p>
+      <ol>
+        <li>把 <code>i &lt;= 5</code> 里的 5 改成 10。</li>
+        <li>把引号里那句“记得喝水。”换成你想说的祝福，比如“愿你今天胃口好。”</li>
+        <li>点“运行看看”，用手指点着数一数，是不是 10 行。</li>
+      </ol>
+      <ul class="checklist">
+        <li>我数到了 10 行，最后一行前面的数字是 10。</li>
+        <li>我只写了一句祝福，电脑却说了 10 遍。</li>
+      </ul>
+    </section>
+
+    <section class="quizzes" aria-label="小测验">
+      <h2>三道小题，检查一下</h2>
+      <p class="muted">答错没关系，可以换个答案再试，也可以回到上面再看一眼。</p>
+
+      <div class="quiz" data-quiz>
+        <p class="quiz-q"><span class="quiz-no">第 1 题</span>循环是用来做什么的？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" type="button" data-correct="true">把同一件事重复做很多遍，代码只写一遍</button>
+          <button class="quiz-opt" type="button" data-correct="false">让电脑一次同时做很多件事</button>
+          <button class="quiz-opt" type="button" data-correct="false">让页面变慢，方便看清楚每一步</button>
+        </div>
+        <p class="quiz-feedback" role="status" data-ok="循环替你重复。你要做的只是说清楚：重复哪一行、重复几遍。" data-no="想想抄通讯录：第 3 页和第 30 页，你做的事有区别吗？"></p>
+      </div>
+
+      <div class="quiz" data-quiz>
+        <p class="quiz-q"><span class="quiz-no">第 2 题</span><code>i++</code> 是什么意思？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" type="button" data-correct="false">把 <code>i</code> 变成 0</button>
+          <button class="quiz-opt" type="button" data-correct="true">每跑完一遍，给 <code>i</code> 加上 1</button>
+          <button class="quiz-opt" type="button" data-correct="false">把 <code>i</code> 打印出来</button>
+        </div>
+        <p class="quiz-feedback" role="status" data-ok="i++ 就是“加一”。计数器一步一步往前走，循环才知道什么时候该停。" data-no="看看运行结果：每一行前面的数字，是不是一个比一个大 1？"></p>
+      </div>
+
+      <div class="quiz" data-quiz>
+        <p class="quiz-q"><span class="quiz-no">第 3 题</span>想让同一句话打印 5 遍，那句话要放在哪儿？</p>
+        <div class="quiz-options">
+          <button class="quiz-opt" type="button" data-correct="false">放在 <code>for</code> 那一行的圆括号里</button>
+          <button class="quiz-opt" type="button" data-correct="false">放在花括号外面</button>
+          <button class="quiz-opt" type="button" data-correct="true">放在花括号里面</button>
+        </div>
+        <p class="quiz-feedback" role="status" data-ok="花括号里面，就是循环要重复的那部分。外面的代码只做一次。" data-no="看看动手区：console.log 那一行，是夹在哪两个符号中间的？"></p>
+      </div>
+    </section>
+
+    <section class="recap" aria-label="这一课的三句话">
+      <h3>用三句话记住这一课</h3>
+      <ul>
+        <li>重复的事交给循环：写一遍，跑很多遍。</li>
+        <li><code>for</code> 一行管三件事：从几开始、到几停、每遍加多少；<code>i++</code> 就是加一。</li>
+        <li>要重复的代码放进花括号里，花括号外面的只做一次。</li>
+      </ul>
+    </section>
+
+    <nav class="lesson-nav" aria-label="课程导航">
+      <div class="nav-pair">
+        <a class="btn btn-ghost" href="lesson-4.html">← 上一课</a>
+      </div>
+      <button class="btn btn-primary" type="button" data-complete="5">我学完这一课了</button>
+      <div class="nav-pair">
+        <a class="btn btn-ghost" href="lesson-6.html">下一课 →</a>
+      </div>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html">
+            <span class="brand-mark" aria-hidden="true">她</span>
+            <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
+          </a>
+          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15 分钟，不用背，只要动手改一改。</p>
+        </div>
+        <div class="footer-col">
+          <h3>课程</h3>
+          <ul>
+            <li><a href="../index.html#course">全部 7 课</a></li>
+            <li><a href="../start.html">第一次来，怎么学</a></li>
+            <li><a href="../project.html">结业作品</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>帮助</h3>
+          <ul>
+            <li><a href="../help.html">常见问题</a></li>
+            <li><a href="../help.html#accessibility">无障碍与朗读说明</a></li>
+            <li><a href="../help.html#settings">字号、深色、动画</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>她学编程 · 一个不需要注册、不收集你信息的公益学习站</span>
+        <span>学得慢一点，也没关系。</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/app.js" defer></script>
+</body>
+</html>
