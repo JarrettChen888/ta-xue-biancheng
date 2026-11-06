@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>第 2 课 · 给网页换个样子｜她学编程</title>
   <meta name="description" content="用 CSS 给网页换样子：背景换暖色、标题换颜色、正文放到中间，顺手认识选择器、属性、值，以及冒号和分号的用法。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="她学编程">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="第 2 课 · 给网页换个样子｜她学编程">
+  <meta property="og:description" content="用 CSS 给网页换样子：背景换暖色、标题换颜色、正文放到中间，顺手认识选择器、属性、值，以及冒号和分号的用法。">
+  <meta property="og:url" content="https://jarrettchen888.github.io/ta-xue-biancheng/lessons/lesson-2.html">
+  <meta property="og:image" content="https://jarrettchen888.github.io/ta-xue-biancheng/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#faf5ee">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="stylesheet" href="../assets/styles.css">
@@ -32,7 +42,7 @@
         <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
       </a>
       <nav class="site-nav" aria-label="主导航">
-        <a href="../index.html#course" aria-current="true">课程</a>
+        <a href="../index.html#course" aria-current="page">课程</a>
         <a href="../start.html">怎么学</a>
         <a href="../help.html">帮助与无障碍</a>
       </nav>
@@ -71,7 +81,7 @@
           <li>把背景换成暖色、标题换颜色、正文放到中间</li>
         </ul>
       </div>
-      <button class="btn-speak" type="button" data-speak="lesson-intro">🔊 读给我听</button>
+      <button class="btn-speak" type="button" data-speak="lesson-goal,lesson-intro">🔊 读一读目标与开场</button>
     </header>
 
     <section class="story" id="lesson-intro">
@@ -81,7 +91,7 @@
       <p>做这件事的语言叫 CSS。今天只学几件小事：换背景、换颜色、改字号、把字放中间。</p>
     </section>
 
-    <section class="concepts" aria-label="这一课的知识点">
+    <section class="concepts" id="lesson-concepts" aria-label="这一课的知识点">
       <article class="concept">
         <span class="concept-num" aria-hidden="true">1</span>
         <h3>样子单独写在一对 style 标签里</h3>
@@ -106,13 +116,15 @@
         <p>它管的是“这一块里的字怎么摆”。想让标题居中，就写进 h1 里；想让正文居中，就写进 p 里。</p>
         <div class="example"><strong>例子：</strong><code>h1 { text-align: center; }</code>，标题就跑到中间去了。</div>
       </article>
+    
+      <button class="btn-speak" type="button" data-speak="lesson-concepts">🔊 读一读知识卡</button>
     </section>
 
-    <aside class="tip">一次只改一个值，运行一次。先改颜色，再改字号；哪一行起了作用，你一眼就看得出来。一起改三处，反而不知道是哪一行起的作用。</aside>
+    <aside class="tip" aria-label="小提示">一次只改一个值，运行一次。先改颜色，再改字号；哪一行起了作用，你一眼就看得出来。一起改三处，反而不知道是哪一行起的作用。</aside>
 
     <section class="playground" data-playground="html" aria-label="动手试一试">
       <div class="pg-head">
-        <p class="pg-title">✍️ 动手区：给这个网页换个暖一点的样子</p>
+        <p class="pg-title">✍️ 动手区：把颜色换成你喜欢的暖色</p>
         <div class="pg-actions">
           <button class="btn btn-run" type="button" data-run>▶ 运行看看</button>
           <button class="btn btn-quiet" type="button" data-reset>恢复原样</button>
@@ -144,22 +156,24 @@
       <p class="pg-status" role="status"></p>
     </section>
 
-    <aside class="mistake">
-      如果你写了 <code>text-align: center;</code>，页面却一点没变，别急着怪自己。先看三处：冒号是不是打成了中文的“：”，分号是不是打成了中文的“；”，或者 <code>center</code> 拼成了 <code>centre</code>。电脑只认英文符号，也只认拼对的词；写错了它不吭声，只是把那一行跳过。颜色词也一样，<code>darkred</code> 少一个字母，这一行就白写了。
+    <aside class="mistake" role="note">
+      如果你写了 <code>text-align: center;</code>，页面却一点没变，别急着怪自己。先看三处：冒号是不是打成了中文的“：”，分号是不是打成了中文的“；”，或者 <code>center</code> 拼成了 <code>centre</code>。电脑只认英文符号，也只认拼对的词；写错了它不吭声，只是把那一行跳过。颜色词也一样，<code>darkred</code> 少一个字母，这一行就白写了。<br><br>怎么打出英文的冒号、分号：先按一下 Shift 切到英文输入，再按冒号键和分号键；如果打出来还是“：”或“；”，说明输入法还在中文状态，再按一次 Shift。
     </aside>
 
-    <section class="task" aria-label="小任务">
+    <section class="task" id="lesson-task" aria-label="小任务">
       <h3>今天的小任务</h3>
       <p>把这个网页换成你喜欢的暖色调：背景暖一点，标题换一个颜色，正文放到中间。</p>
       <ol>
         <li>找到 <code>background: ivory;</code>，把 ivory 换成 linen 或 mistyrose，点“运行看看”。</li>
         <li>找到 h1 里的 <code>color: black;</code>，把 black 换成 darkred 或 saddlebrown，再运行。</li>
-        <li>找到 p 的花括号，在里面加一行 <code>text-align: center;</code>，最后运行一次。</li>
+        <li>找到 p 的花括号，在里面加一行 <code>text-align: center;</code>（先按 Shift 切到英文，再打冒号和分号），最后运行一次。</li>
       </ol>
       <ul class="checklist">
         <li>背景变成了暖色，标题也换成了我挑的颜色。</li>
         <li>正文跑到中间了，而且冒号、分号都是英文的。</li>
       </ul>
+    
+      <button class="btn-speak" type="button" data-speak="lesson-task">🔊 读一读今天的小任务</button>
     </section>
 
     <section class="quizzes" aria-label="小测验">
@@ -197,13 +211,14 @@
       </div>
     </section>
 
-    <section class="recap" aria-label="这一课的三句话">
+    <section class="recap" id="lesson-recap" aria-label="这一课的三句话">
       <h3>用三句话记住这一课</h3>
       <ul>
         <li>CSS 管样子：颜色、字号、位置；样子写在 style 标签里。</li>
         <li>一行样式是 <code>选择器 { 属性: 值; }</code>，冒号和分号都要用英文的。</li>
         <li>想让字居中，就在它对应的选择器里写 <code>text-align: center;</code>。</li>
       </ul>
+          <button class="btn-speak" type="button" data-speak="lesson-recap">🔊 读一读这三句话</button>
     </section>
 
     <nav class="lesson-nav" aria-label="课程导航">
@@ -225,7 +240,7 @@
             <span class="brand-mark" aria-hidden="true">她</span>
             <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
           </a>
-          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15 分钟，不用背，只要动手改一改。</p>
+          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15–25 分钟，不用背，只要动手改一改。</p>
         </div>
         <div class="footer-col">
           <h3>课程</h3>

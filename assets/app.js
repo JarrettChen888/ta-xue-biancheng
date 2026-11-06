@@ -172,7 +172,9 @@
 
   function splitSentences(text) {
     var chunks = [];
-    var parts = String(text).replace(/\s+/g, " ").split(/(?<=[。！？；!?])/);
+    var normalized = String(text).replace(/\s+/g, " ");
+    // 不用 lookbehind 正则：老版本 Safari 会直接语法报错，整站脚本都跑不起来
+    var parts = normalized.match(/[^。！？；!?]+[。！？；!?]?/g) || [normalized];
     var buffer = "";
     parts.forEach(function (part) {
       if ((buffer + part).length > 90) {
@@ -274,22 +276,40 @@
     "line-height:1.85;color:#14352a;background:#eaf5ee;border-radius:10px;padding:12px 14px;min-height:3em;margin:0;}" +
     "</style>";
 
+  // JS 动手区的结果区做成"深色控制台"，和文字内容区分开
+  var JS_STYLE =
+    '<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">' +
+    "<style>" +
+    "html,body{margin:0;padding:0;background:#1f2a24;color:#d9f2e3;}" +
+    "body{padding:14px 16px;font-family:ui-monospace,Menlo,Consolas,'Courier New',monospace;font-size:15px;line-height:1.9;}" +
+    "#__out{white-space:pre-wrap;margin:0;min-height:2em;font-family:inherit;font-size:inherit;color:inherit;}" +
+    "</style>";
+
   function buildDocument(code, mode) {
     if (mode === "js") {
+      // 把用户代码放进 new Function 里执行，这样连"语法错误"也能被捕获并翻译，
+      // 而不是让整个预览区空白一片。
+      var codeJson = JSON.stringify(String(code)).replace(/</g, "\\u003c");
       return (
         '<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">' +
-        BASE_STYLE +
+        JS_STYLE +
         '</head><body><pre id="__out"></pre><script>\n(function(){\n' +
         'var out=document.getElementById("__out");\n' +
         'function show(t){out.textContent+=t+"\\n";}\n' +
-        'console.log=function(){show(Array.prototype.slice.call(arguments).join(" "));};\n' +
+        'function __str(a){return a===undefined?"undefined":a;}\n' +
+        'function friendly(m){' +
+        'var s=String(m||"");' +
+        'if(/Invalid or unexpected token|Unexpected token|Unexpected identifier/i.test(s)){return "这段代码里有个符号电脑没看懂。检查三样：引号是不是打成中文的了、括号有没有配对、每句结尾是不是漏了分号。";}' +
+        'if(/Unexpected end of input|missing \\)|missing \\}/i.test(s)){return "代码好像没写完：可能少了一个右引号、右括号或右花括号。";}' +
+        'if(/is not defined/i.test(s)){return "有个名字电脑不认识。检查一下拼写；文字外面是不是忘了加引号。";}' +
+        'if(/Cannot read|is not a function|of undefined|of null/i.test(s)){return "电脑读到一个空的东西。检查一下变量名有没有写错，或者那个变量是不是还没赋值。";}' +
+        'return "运行出错了。先检查引号、括号、分号这三样，再点一次运行。";}' +
+        'console.log=function(){show(Array.prototype.map.call(arguments,__str).join(" "));};\n' +
         'console.info=console.log;\n' +
-        'console.warn=function(){show("提示："+Array.prototype.slice.call(arguments).join(" "));};\n' +
-        'console.error=function(){show("出错："+Array.prototype.slice.call(arguments).join(" "));};\n' +
-        'window.onerror=function(m){show("出错啦："+m);return true;};\n' +
-        "try{\n" +
-        code +
-        "\n}catch(err){show(\"出错啦：\"+(err&&err.message?err.message:err));}\n" +
+        'console.warn=function(){show("提示："+Array.prototype.map.call(arguments,__str).join(" "));};\n' +
+        'console.error=function(){show("出错："+Array.prototype.map.call(arguments,__str).join(" "));};\n' +
+        'var __code=' + codeJson + ';\n' +
+        'try{ (new Function(__code))(); }catch(err){ show("❌ " + friendly(err && err.message ? err.message : err)); }\n' +
         "})();\n<\/script></body></html>"
       );
     }
@@ -309,13 +329,24 @@
       editor.id = editor.id || "pg-editor-" + boxIndex;
       var original = editor.value;
 
-      if (mode === "js") {
-        frame.hidden = true;
-        if (consoleEl) consoleEl.hidden = false;
-      } else {
-        frame.hidden = false;
-        if (consoleEl) consoleEl.hidden = true;
+      // 草稿：把改动存在本机浏览器里，误关页面或刷新后还能找回来
+      var draftKey = null;
+      var draftTimer = null;
+      var restoredNote = null;
+      try {
+        draftKey = "hx.draft." + window.location.pathname + "." + boxIndex;
+        var savedDraft = window.localStorage.getItem(draftKey);
+        if (savedDraft !== null && savedDraft !== original) {
+          editor.value = savedDraft;
+          restoredNote = "已恢复你上次没保存的改动。想从头来，点“恢复原样”。";
+        }
+      } catch (e) {
+        draftKey = null;
       }
+
+      // 两种模式都用 iframe 显示结果：JS 模式是深色控制台，HTML 模式是网页预览。
+      frame.hidden = false;
+      if (consoleEl) consoleEl.hidden = true;
 
       function run(silent) {
         var code = editor.value;
@@ -324,7 +355,7 @@
           if (status) {
             status.classList.remove("is-error");
             status.classList.add("is-ok");
-            status.textContent = silent ? "" : "已经运行了，看看下面的结果。";
+            status.textContent = silent ? "" : "已经运行了，结果在上面的运行结果框里。";
           }
         } catch (err) {
           if (status) {
@@ -343,6 +374,13 @@
       if (resetBtn) {
         resetBtn.addEventListener("click", function () {
           editor.value = original;
+          if (draftKey) {
+            try {
+              window.localStorage.removeItem(draftKey);
+            } catch (e) {
+              /* 忽略 */
+            }
+          }
           run(false);
           if (status) {
             status.classList.remove("is-error");
@@ -357,16 +395,40 @@
           run(false);
         }
       });
+      if (draftKey) {
+        editor.addEventListener("input", function () {
+          window.clearTimeout(draftTimer);
+          draftTimer = window.setTimeout(function () {
+            try {
+              window.localStorage.setItem(draftKey, editor.value);
+            } catch (e) {
+              /* 存不下就算了，不打断学习 */
+            }
+          }, 500);
+        });
+      }
       // 首次进入自动展示一次结果，让学习者先“看见”
       run(true);
+      if (restoredNote && status) {
+        status.classList.add("is-ok");
+        status.textContent = restoredNote;
+      }
     });
   }
 
   /* ---------- 4. 小测验 ---------- */
   function initQuizzes() {
-    $$("[data-quiz]").forEach(function (quiz) {
+    $$("[data-quiz]").forEach(function (quiz, quizIndex) {
       var feedback = $(".quiz-feedback", quiz);
       var options = $$(".quiz-opt", quiz);
+      var question = $(".quiz-q", quiz);
+      var optionBox = $(".quiz-options", quiz);
+      if (question && optionBox) {
+        var qid = "quiz-question-" + quizIndex + "-" + String(window.location.pathname).replace(/[^a-zA-Z0-9]/g, "");
+        question.id = qid;
+        optionBox.setAttribute("role", "group");
+        optionBox.setAttribute("aria-labelledby", qid);
+      }
       options.forEach(function (opt) {
         opt.addEventListener("click", function () {
           if (quiz.getAttribute("data-solved") === "1") return;
@@ -493,10 +555,7 @@
         var num = btn.getAttribute("data-complete");
         var p = getProgress();
         if (p[num]) {
-          delete p[num];
-          saveProgress(p);
-          paintProgress();
-          announce("已取消这一课的完成标记");
+          announce("这一课已经标记为学完了，不用再点。");
           return;
         }
         p[num] = true;

@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>第 0 课 · 代码，其实就是一份说明书｜她学编程</title>
   <meta name="description" content="零基础第一课：用家里的电饭煲说明书，弄懂代码是什么、网页由什么组成，然后亲手改出自己的第一句话。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="她学编程">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="第 0 课 · 代码，其实就是一份说明书｜她学编程">
+  <meta property="og:description" content="零基础第一课：用家里的电饭煲说明书，弄懂代码是什么、网页由什么组成，然后亲手改出自己的第一句话。">
+  <meta property="og:url" content="https://jarrettchen888.github.io/ta-xue-biancheng/lessons/lesson-0.html">
+  <meta property="og:image" content="https://jarrettchen888.github.io/ta-xue-biancheng/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#faf5ee">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="stylesheet" href="../assets/styles.css">
@@ -31,7 +41,7 @@
         <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
       </a>
       <nav class="site-nav" aria-label="主导航">
-        <a href="../index.html#course" aria-current="true">课程</a>
+        <a href="../index.html#course" aria-current="page">课程</a>
         <a href="../start.html">怎么学</a>
         <a href="../help.html">帮助与无障碍</a>
       </nav>
@@ -70,23 +80,23 @@
           <li>亲手改出一句属于你自己的话，并让它显示在网页上</li>
         </ul>
       </div>
-      <button class="btn-speak" type="button" data-speak="lesson-intro">🔊 读给我听</button>
+      <button class="btn-speak" type="button" data-speak="lesson-goal,lesson-intro">🔊 读一读目标与开场</button>
     </header>
 
     <section class="story" id="lesson-intro">
       <p class="story-open">家里新买的电饭煲，说明书第一页写着：按下按键，等三秒，开始煮饭。</p>
-      <p>你照着做，饭就熟了。没有人觉得说明书难，因为它写的全是"你该做什么"，一句废话都没有。</p>
-      <p>今天要认识的代码，是反过来的一回事：<strong>代码，是我们写给电脑看的说明书。</strong>电脑很听话，可它也很笨——它不会猜。你写"把字变大了"，它才变大；你没写，它就按最普通的样子显示。</p>
-      <p>所以学编程，不是学聪明，是学一件事：把话说清楚、说完整。这大概是 50 岁的你最有优势的地方——你给家人交代过太多事情，也写过大半辈子的"说明书"了。</p>
+      <p>你照着做，饭就熟了。没有人觉得说明书难，因为它写的全是“你该做什么”，一句废话都没有。</p>
+      <p>今天要认识的代码，是反过来的一回事：<strong>代码，是我们写给电脑看的说明书。</strong>电脑很听话，可它也很笨——它不会猜。你写“把字变大了”，它才变大；你没写，它就按最普通的样子显示。</p>
+      <p>所以学编程，不是学聪明，是学一件事：把话说清楚、说完整。这大概是 50 岁的你最有优势的地方——你给家人交代过太多事情，也写过大半辈子的“说明书”了。</p>
     </section>
 
-    <section class="concepts" aria-label="这一课的知识点">
+    <section class="concepts" id="lesson-concepts" aria-label="这一课的知识点">
       <article class="concept">
         <span class="concept-num" aria-hidden="true">1</span>
         <h3>电脑不会猜，它只会照做</h3>
-        <p>让家人出门带"一点盐"回来，他可能带一包，也可能带一袋。跟人说话可以这样含糊，跟电脑不行。</p>
-        <p>跟电脑，得说："带 3 克盐。"写代码的时候，你每写一句，都可以问自己一句：<strong>它会不会理解成别的意思？</strong></p>
-        <div class="example"><strong>例子：</strong>写 <code>&lt;h1&gt;你好&lt;/h1&gt;</code>，页面就会显示一个大标题；只写"你好"两个字，它就只会显示一行普通小字。</div>
+        <p>让家人出门带“一点盐”回来，他可能带一包，也可能带一袋。跟人说话可以这样含糊，跟电脑不行。</p>
+        <p>跟电脑，得说：“带 3 克盐。”写代码的时候，你每写一句，都可以问自己一句：<strong>它会不会理解成别的意思？</strong></p>
+        <div class="example"><strong>例子：</strong>写 <code>&lt;h1&gt;你好&lt;/h1&gt;</code>，页面就会显示一个大标题；只写“你好”两个字，它就只会显示一行普通小字。</div>
       </article>
 
       <article class="concept">
@@ -99,14 +109,16 @@
 
       <article class="concept">
         <span class="concept-num" aria-hidden="true">3</span>
-        <h3>你不需要背，你需要"改"</h3>
+        <h3>你不需要背，你需要“改”</h3>
         <p>会用遥控器，不需要会造电视机；会改一句话，就已经在学编程了。</p>
-        <p>接下来每一课，你的动作都只有四个字：<strong>改、运行、看、再改</strong>。改坏了不要紧，页面有个"恢复原样"的按钮。</p>
-        <div class="example"><strong>例子：</strong>把"你好"改成"我很好"，再点一下运行，看看页面上的字有没有跟着你变。</div>
+        <p>接下来每一课，你的动作都只有四个字：<strong>改、运行、看、再改</strong>。改坏了不要紧，页面有个“恢复原样”的按钮。</p>
+        <div class="example"><strong>例子：</strong>把“你好”改成“我很好”，再点一下运行，看看页面上的字有没有跟着你变。</div>
       </article>
+    
+      <button class="btn-speak" type="button" data-speak="lesson-concepts">🔊 读一读知识卡</button>
     </section>
 
-    <aside class="tip">改完一定要点一下 <strong>▶ 运行看看</strong>。代码不会自己变，你点了它才动。改代码也弄不坏电脑——最坏的结果是页面上显示得不对，再改回来就行。</aside>
+    <aside class="tip" aria-label="小提示">改完一定要点一下 <strong>▶ 运行看看</strong>。代码不会自己变，你点了它才动。改代码也弄不坏电脑——最坏的结果是页面上显示得不对，再改回来就行。</aside>
 
     <section class="playground" data-playground="html" aria-label="动手试一试">
       <div class="pg-head">
@@ -127,11 +139,11 @@
       <p class="pg-status" role="status"></p>
     </section>
 
-    <aside class="mistake">
+    <aside class="mistake" role="note">
       如果你改着改着，把整行都删掉了，别慌。点一下"恢复原样"，它就会回到我刚刚给你的样子。你也可以直接在下面重新打一遍那几个字——打字，本来就是学编程的一部分。
     </aside>
 
-    <section class="task" aria-label="小任务">
+    <section class="task" id="lesson-task" aria-label="小任务">
       <h3>今天的小任务</h3>
       <p>只做一件事：让这个网页上，出现一句你想说给家人听的话。</p>
       <ol>
@@ -143,6 +155,8 @@
         <li>我在运行结果里看到了自己的名字。</li>
         <li>我至少改过两次，并且每次都看到了变化。</li>
       </ul>
+    
+      <button class="btn-speak" type="button" data-speak="lesson-task">🔊 读一读今天的小任务</button>
     </section>
 
     <section class="quizzes" aria-label="小测验">
@@ -162,8 +176,8 @@
       <div class="quiz" data-quiz>
         <p class="quiz-q"><span class="quiz-no">第 2 题</span>你想让网页上出现一行大大的标题，应该怎么做？</p>
         <div class="quiz-options">
-          <button class="quiz-opt" type="button" data-correct="false">在心里默念三遍"我要一个大标题"</button>
-          <button class="quiz-opt" type="button" data-correct="false">在页面上直接打一句"请显示一个大标题"</button>
+          <button class="quiz-opt" type="button" data-correct="false">把字号调到最大，电脑就会把它当成标题</button>
+          <button class="quiz-opt" type="button" data-correct="false">在页面上直接打一句“请显示一个大标题”</button>
           <button class="quiz-opt" type="button" data-correct="true">用 <code>h1</code> 这个标签，把字包起来</button>
         </div>
         <p class="quiz-feedback" role="status" data-ok="h1 就是“一级标题”的外套。电脑看到它，就知道这几个字要放大。" data-no="电脑不会猜。你需要一种明确的写法，告诉它“这是标题”。"></p>
@@ -180,13 +194,14 @@
       </div>
     </section>
 
-    <section class="recap" aria-label="这一课的三句话">
+    <section class="recap" id="lesson-recap" aria-label="这一课的三句话">
       <h3>用三句话记住这一课</h3>
       <ul>
         <li>代码，是写给电脑看的说明书。它很听话，但它不会猜。</li>
         <li>一个网页由三样东西组成：文字（内容）、样子（装修）、动作（电器）。</li>
         <li>学编程的第一步不是背，是改：改一个字，运行，看结果。</li>
       </ul>
+          <button class="btn-speak" type="button" data-speak="lesson-recap">🔊 读一读这三句话</button>
     </section>
 
     <nav class="lesson-nav" aria-label="课程导航">
@@ -208,7 +223,7 @@
             <span class="brand-mark" aria-hidden="true">她</span>
             <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
           </a>
-          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15 分钟，不用背，只要动手改一改。</p>
+          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15–25 分钟，不用背，只要动手改一改。</p>
         </div>
         <div class="footer-col">
           <h3>课程</h3>

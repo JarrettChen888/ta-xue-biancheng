@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>第 6 课 · 把本事打包：函数｜她学编程</title>
   <meta name="description" content="零基础第六课：像把做菜的步骤写在一张便签上那样，把几行代码装进函数、起个名字，学会定义、调用和 return。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="她学编程">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="第 6 课 · 把本事打包：函数｜她学编程">
+  <meta property="og:description" content="零基础第六课：像把做菜的步骤写在一张便签上那样，把几行代码装进函数、起个名字，学会定义、调用和 return。">
+  <meta property="og:url" content="https://jarrettchen888.github.io/ta-xue-biancheng/lessons/lesson-6.html">
+  <meta property="og:image" content="https://jarrettchen888.github.io/ta-xue-biancheng/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#faf5ee">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="stylesheet" href="../assets/styles.css">
@@ -31,7 +41,7 @@
         <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
       </a>
       <nav class="site-nav" aria-label="主导航">
-        <a href="../index.html#course" aria-current="true">课程</a>
+        <a href="../index.html#course" aria-current="page">课程</a>
         <a href="../start.html">怎么学</a>
         <a href="../help.html">帮助与无障碍</a>
       </nav>
@@ -70,7 +80,7 @@
           <li>能写出一个会打招呼、还能换名字的函数，并跑起来</li>
         </ul>
       </div>
-      <button class="btn-speak" type="button" data-speak="lesson-intro">🔊 读给我听</button>
+      <button class="btn-speak" type="button" data-speak="lesson-goal,lesson-intro">🔊 读一读目标与开场</button>
     </header>
 
     <section class="story" id="lesson-intro">
@@ -81,7 +91,7 @@
       <p>它省下的不是打字的时间，是“每一次都要重新交代清楚”的那种累。</p>
     </section>
 
-    <section class="concepts" aria-label="这一课的知识点">
+    <section class="concepts" id="lesson-concepts" aria-label="这一课的知识点">
       <article class="concept">
         <span class="concept-num" aria-hidden="true">1</span>
         <h3>定义：给一整套本事起个名字</h3>
@@ -108,13 +118,15 @@
         <p>所以你会怎么做：把要交给它用的东西写在圆括号里，把做完的结果写在 <code>return</code> 后面；然后拿外面那行 <code>console.log</code> 接住它。</p>
         <div class="example"><strong>例子：</strong>调用 <code>打招呼("小林")</code>，“小林”就是这次交进去的名字；函数把它拼成“你好，小林。”，用 <code>return</code> 交回来，<code>console.log</code> 才打印得出来。</div>
       </article>
+    
+      <button class="btn-speak" type="button" data-speak="lesson-concepts">🔊 读一读知识卡</button>
     </section>
 
-    <aside class="mistake">
-      如果点了运行，输出框里一个字都没有，先别怀疑自己。看看有没有写调用的那一行。光把函数写出来（<code>function 名字() { ... }</code>），电脑只是“知道了”，不会自己开始做。这不是你没学会，是还差一句“现在开始”。
+    <aside class="mistake" role="note">
+      如果点了运行，运行结果框里一个字都没有，先别怀疑自己。看看有没有写调用的那一行。光把函数写出来（<code>function 名字() { ... }</code>），电脑只是“知道了”，不会自己开始做。这不是你没学会，是还差一句“现在开始”。
     </aside>
 
-    <aside class="tip">起名字要一眼看得懂，中文也行；但定义和调用必须一字不差。差一个字，电脑就当那是另一个东西，安安静静什么都不做。</aside>
+    <aside class="tip" aria-label="小提示">起名字要一眼看得懂，中文也行；但定义和调用必须一字不差。差一个字，电脑就当那是另一个东西，安安静静什么都不做。</aside>
 
     <section class="playground" data-playground="js" aria-label="动手试一试">
       <div class="pg-head">
@@ -139,11 +151,11 @@ console.log(打招呼("阿梅"));</textarea>
       <p class="pg-status" role="status"></p>
     </section>
 
-    <aside class="mistake">
-      如果结果里出现了一行 <code>undefined</code>，意思是“没有拿回东西”。最常见的原因，是函数里忘了写 <code>return</code>，或者把要交出去的结果直接在函数里 <code>console.log</code> 掉了——那样它只在函数里面说了一句，外面什么也没接到。回头看一眼：函数最后是不是有一行以 <code>return</code> 开头。要是 <code>return</code> 拼错了，比如写成 retrun，结果里会出现一句“出错啦”，改回来就好。
+    <aside class="mistake" role="note">
+      如果结果里出现了一行 <code>undefined</code>，意思是“没有拿回东西”。最常见的原因，是函数里忘了写 <code>return</code>，或者把要交出去的结果直接在函数里 <code>console.log</code> 掉了——那样它只在函数里面说了一句，外面什么也没接到。回头看一眼：函数最后是不是有一行以 <code>return</code> 开头。要是 <code>return</code> 拼错了，比如写成 retrun，结果里会出现一行以 ❌ 开头的提示，改回来就好。
     </aside>
 
-    <section class="task" aria-label="小任务">
+    <section class="task" id="lesson-task" aria-label="小任务">
       <h3>今天的小任务</h3>
       <p>写一个能打招呼的函数，然后换两个名字，各调用一次。</p>
       <ol>
@@ -155,6 +167,8 @@ console.log(打招呼("阿梅"));</textarea>
         <li>我只写了一次 <code>function</code>，却问好了两个人。</li>
         <li>两行字里只有名字不同，问候语是一样的。</li>
       </ul>
+    
+      <button class="btn-speak" type="button" data-speak="lesson-task">🔊 读一读今天的小任务</button>
     </section>
 
     <section class="quizzes" aria-label="小测验">
@@ -185,20 +199,21 @@ console.log(打招呼("阿梅"));</textarea>
         <p class="quiz-q"><span class="quiz-no">第 3 题</span><code>return</code> 的作用是什么？</p>
         <div class="quiz-options">
           <button class="quiz-opt" type="button" data-correct="false">让页面显示一行字</button>
-          <button class="quiz-opt" type="button" data-correct="false">把整个网页关掉</button>
+          <button class="quiz-opt" type="button" data-correct="false">把 function 的名字改成 console.log</button>
           <button class="quiz-opt" type="button" data-correct="true">把函数做完的结果交回来</button>
         </div>
         <p class="quiz-feedback" role="status" data-ok="return 是函数的出口。没有它，函数做完了也拿不出结果，外面只能看到 undefined。" data-no="想让外面那行 console.log 打印出结果，函数得先把结果交给谁？"></p>
       </div>
     </section>
 
-    <section class="recap" aria-label="这一课的三句话">
+    <section class="recap" id="lesson-recap" aria-label="这一课的三句话">
       <h3>用三句话记住这一课</h3>
       <ul>
         <li>函数，就是把几行步骤打包，起一个名字。</li>
         <li>写了 <code>function</code> 只是定义；要写 <code>名字();</code> 才是调用，它才会动。</li>
         <li>参数是交进去的东西，<code>return</code> 是交回来的结果。</li>
       </ul>
+          <button class="btn-speak" type="button" data-speak="lesson-recap">🔊 读一读这三句话</button>
     </section>
 
     <nav class="lesson-nav" aria-label="课程导航">
@@ -220,7 +235,7 @@ console.log(打招呼("阿梅"));</textarea>
             <span class="brand-mark" aria-hidden="true">她</span>
             <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
           </a>
-          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15 分钟，不用背，只要动手改一改。</p>
+          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15–25 分钟，不用背，只要动手改一改。</p>
         </div>
         <div class="footer-col">
           <h3>课程</h3>

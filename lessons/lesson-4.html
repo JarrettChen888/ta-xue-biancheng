@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>第 4 课 · 让电脑学会判断｜她学编程</title>
   <meta name="description" content="零基础第四课：用出门带伞和路口的红绿灯，弄懂 if 和 else 怎么让电脑做判断，分清 = 和 ===。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="她学编程">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="第 4 课 · 让电脑学会判断｜她学编程">
+  <meta property="og:description" content="零基础第四课：用出门带伞和路口的红绿灯，弄懂 if 和 else 怎么让电脑做判断，分清 = 和 ===。">
+  <meta property="og:url" content="https://jarrettchen888.github.io/ta-xue-biancheng/lessons/lesson-4.html">
+  <meta property="og:image" content="https://jarrettchen888.github.io/ta-xue-biancheng/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#faf5ee">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="stylesheet" href="../assets/styles.css">
@@ -31,7 +41,7 @@
         <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
       </a>
       <nav class="site-nav" aria-label="主导航">
-        <a href="../index.html#course" aria-current="true">课程</a>
+        <a href="../index.html#course" aria-current="page">课程</a>
         <a href="../start.html">怎么学</a>
         <a href="../help.html">帮助与无障碍</a>
       </nav>
@@ -70,7 +80,7 @@
           <li>写出一个“今天要不要带伞”的判断，并且跑起来</li>
         </ul>
       </div>
-      <button class="btn-speak" type="button" data-speak="lesson-intro">🔊 读给我听</button>
+      <button class="btn-speak" type="button" data-speak="lesson-goal,lesson-intro">🔊 读一读目标与开场</button>
     </header>
 
     <section class="story" id="lesson-intro">
@@ -81,7 +91,7 @@
       <p>这件事有个名字，叫判断。你其实早就会了，只是今天要把它说给电脑听。</p>
     </section>
 
-    <section class="concepts" aria-label="这一课的知识点">
+    <section class="concepts" id="lesson-concepts" aria-label="这一课的知识点">
       <article class="concept">
         <span class="concept-num" aria-hidden="true">1</span>
         <h3>条件，是一句能回答“是”或“不是”的话</h3>
@@ -108,12 +118,14 @@
         <p>所以你会怎么做：把“条件成立时做什么”写在 <code>if</code> 后面的花括号里，把“其余情况做什么”写在 <code>else</code> 后面的花括号里。</p>
         <div class="example"><strong>例子：</strong>温度是 32 度时，走的是 <code>if</code> 那一段，打印“开空调。”；把温度改成 25，走的就是 <code>else</code> 那一段，打印“开窗，让风进来。”——下面的动手区可以亲手试。</div>
       </article>
+    
+      <button class="btn-speak" type="button" data-speak="lesson-concepts">🔊 读一读知识卡</button>
     </section>
 
-    <aside class="tip">改完一定要点 <strong>▶ 运行看看</strong>，代码不会自己动。想确认判断真的在起作用，把 <code>32</code> 改成 <code>25</code> 再运行一次：结果换成了另一句，就说明它真的在选。</aside>
+    <aside class="tip" aria-label="小提示">改完一定要点 <strong>▶ 运行看看</strong>，代码不会自己动。想确认判断真的在起作用，把 <code>32</code> 改成 <code>25</code> 再运行一次：结果换成了另一句，就说明它真的在选。</aside>
 
-    <aside class="mistake">
-      如果点了运行，结果里跳出“出错啦：Unexpected token”这样的话，先看两处：<code>if</code> 后面的圆括号有没有写全，花括号是不是一左一右成对。还有，<code>else</code> 必须紧跟在 <code>if</code> 那一段的右花括号后面，中间不能插别的东西。少一个括号，电脑就整段都读不懂了。
+    <aside class="mistake" role="note">
+      如果点了运行，运行结果框里出现一行以 ❌ 开头的提示，先看两处：<code>if</code> 后面的圆括号有没有写全，花括号是不是一左一右成对。还有，<code>else</code> 必须紧跟在 <code>if</code> 那一段的右花括号后面，中间不能插别的东西。少一个括号，电脑就整段都读不懂了。
     </aside>
 
     <section class="playground" data-playground="js" aria-label="动手试一试">
@@ -142,15 +154,16 @@ if (温度 >= 30) {
       <p class="pg-status" role="status"></p>
     </section>
 
-    <aside class="mistake">
-      如果你明明写的是“超过 30 度开空调”，结果却总是走开空调那一条，先看圆括号里有没有写成一条横线：<code>if (温度 = 30)</code>。电脑不会报错，它会直接把 30 放进“温度”里，然后当作“是真的”，永远走同一条路。这不是你笨，是两种横线长得太像——写完用手指点着数一遍就好。
+    <aside class="mistake" role="note">
+      如果你明明写的是“到 30 度或更热就开空调”，结果却总是走开空调那一条，先看圆括号里有没有写成一条横线：<code>if (温度 = 30)</code>。电脑不会报错，它会直接把 30 放进“温度”里，然后当作“是真的”，永远走同一条路。这不是你笨，是两种横线长得太像——写完用手指点着数一遍就好。
     </aside>
 
-    <section class="task" aria-label="小任务">
+    <section class="task" id="lesson-task" aria-label="小任务">
       <h3>今天的小任务</h3>
       <p>写一个“今天要不要带伞”的判断，让电脑替你看一眼天，再替你决定。</p>
       <ol>
-        <li>把第一行和下面那句“今天 32 度。”一起删掉，换成 <code>let 下雨 = true;</code>。这就是今天的天气。</li>
+        <li>先不删东西：把 <code>32</code> 改成 <code>22</code>，点一次运行，看它走哪一条路。</li>
+        <li>想换成下雨天，就把第一行和“今天 32 度。”那一句一起删掉（选中整行，按一次删除键），换成 <code>let 下雨 = true;</code>。</li>
         <li>把 <code>if</code> 后面的圆括号改成 <code>下雨 === true</code>，两条路里的句子改成“带伞。”和“不用带伞，走吧。”</li>
         <li>点“运行看看”；然后把 <code>true</code> 改成 <code>false</code>，点第二次运行。</li>
       </ol>
@@ -158,6 +171,8 @@ if (温度 >= 30) {
         <li>第一次运行，结果里出现了“带伞。”</li>
         <li>改成 <code>false</code> 以后，出来的换成了另一句。</li>
       </ul>
+    
+      <button class="btn-speak" type="button" data-speak="lesson-task">🔊 读一读今天的小任务</button>
     </section>
 
     <section class="quizzes" aria-label="小测验">
@@ -195,13 +210,14 @@ if (温度 >= 30) {
       </div>
     </section>
 
-    <section class="recap" aria-label="这一课的三句话">
+    <section class="recap" id="lesson-recap" aria-label="这一课的三句话">
       <h3>用三句话记住这一课</h3>
       <ul>
         <li><code>if</code> 是一道选择题：条件写在圆括号里，成立就走第一段。</li>
         <li>三条横线 <code>===</code> 是比较，一条横线 <code>=</code> 是放下。横线要数清楚。</li>
         <li>条件不成立，才轮到 <code>else</code>。两条路，一次只走一条。</li>
       </ul>
+          <button class="btn-speak" type="button" data-speak="lesson-recap">🔊 读一读这三句话</button>
     </section>
 
     <nav class="lesson-nav" aria-label="课程导航">
@@ -223,7 +239,7 @@ if (温度 >= 30) {
             <span class="brand-mark" aria-hidden="true">她</span>
             <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
           </a>
-          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15 分钟，不用背，只要动手改一改。</p>
+          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15–25 分钟，不用背，只要动手改一改。</p>
         </div>
         <div class="footer-col">
           <h3>课程</h3>

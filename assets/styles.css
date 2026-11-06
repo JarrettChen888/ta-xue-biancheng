@@ -249,6 +249,10 @@ img {
 }
 
 /* ---------- 3. 无障碍工具类 ---------- */
+[hidden] {
+  display: none !important;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -374,6 +378,7 @@ html[data-motion="reduce"] *::after {
   position: sticky;
   top: 0;
   z-index: 50;
+  background: var(--bg);
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -764,6 +769,7 @@ html[data-theme="dark"] .btn-run {
   width: 5.5rem;
   height: 1.4rem;
   transform: translateX(-50%) rotate(1.4deg);
+  background: var(--gold-soft);
   background: color-mix(in srgb, var(--gold-soft) 75%, transparent);
   border: 1px solid color-mix(in srgb, var(--gold) 25%, transparent);
   border-radius: 2px;
@@ -892,6 +898,7 @@ html[data-theme="dark"] .btn-run {
 
 .lesson-row.is-done {
   background: var(--sage-soft);
+  border-color: var(--line-strong);
   border-color: color-mix(in srgb, var(--sage) 30%, var(--line));
 }
 
@@ -1126,7 +1133,10 @@ html[data-theme="dark"] .lesson-row.is-done .lesson-no {
 .browser-photo::after {
   content: "✦";
   position: absolute;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   display: grid;
   place-items: center;
   color: rgba(255, 255, 255, 0.85);
@@ -1284,6 +1294,7 @@ html[data-theme="dark"] .lesson-row.is-done .lesson-no {
   margin: 1.4rem 0;
   padding: 1.1rem 1.3rem;
   background: var(--gold-soft);
+  border: 1px solid var(--line-strong);
   border: 1px solid color-mix(in srgb, var(--gold) 30%, var(--line));
   border-radius: var(--radius-sm);
   font-size: 0.96rem;
@@ -1325,6 +1336,7 @@ html[data-theme="dark"] .lesson-row.is-done .lesson-no {
   margin: 1.4rem 0;
   padding: 1.1rem 1.3rem;
   background: var(--brand-soft);
+  border: 1px solid var(--line-strong);
   border: 1px solid color-mix(in srgb, var(--brand) 25%, var(--line));
   border-left: 5px solid var(--brand);
   border-radius: var(--radius-sm);
@@ -1418,6 +1430,10 @@ html[data-theme="dark"] .lesson-row.is-done .lesson-no {
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   background: #fffdf9;
+}
+
+[data-playground="js"] .pg-frame {
+  min-height: 17rem;
 }
 
 .pg-console {
@@ -1599,6 +1615,7 @@ html[data-theme="dark"] .lesson-row.is-done .lesson-no {
   padding: 1.3rem 1.4rem;
   background: var(--sage-soft);
   border-radius: var(--radius);
+  border: 1px solid var(--line-strong);
   border: 1px solid color-mix(in srgb, var(--sage) 25%, var(--line));
 }
 
@@ -1618,6 +1635,10 @@ html[data-theme="dark"] .lesson-row.is-done .lesson-no {
 
 .recap li {
   margin-bottom: 0.3em;
+}
+
+.recap .btn-speak {
+  margin-top: 1rem;
 }
 
 /* 课程底部导航 */

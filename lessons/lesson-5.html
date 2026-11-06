@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>第 5 课 · 重复的事，交给循环｜她学编程</title>
   <meta name="description" content="零基础第五课：用抄通讯录和洗衣机的日常画面，弄懂 for 循环怎么把同一件事重复很多遍，再让电脑替你打印十句祝福。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="她学编程">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="第 5 课 · 重复的事，交给循环｜她学编程">
+  <meta property="og:description" content="零基础第五课：用抄通讯录和洗衣机的日常画面，弄懂 for 循环怎么把同一件事重复很多遍，再让电脑替你打印十句祝福。">
+  <meta property="og:url" content="https://jarrettchen888.github.io/ta-xue-biancheng/lessons/lesson-5.html">
+  <meta property="og:image" content="https://jarrettchen888.github.io/ta-xue-biancheng/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#faf5ee">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="stylesheet" href="../assets/styles.css">
@@ -31,7 +41,7 @@
         <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
       </a>
       <nav class="site-nav" aria-label="主导航">
-        <a href="../index.html#course" aria-current="true">课程</a>
+        <a href="../index.html#course" aria-current="page">课程</a>
         <a href="../start.html">怎么学</a>
         <a href="../help.html">帮助与无障碍</a>
       </nav>
@@ -70,7 +80,7 @@
           <li>能让电脑连续打印 10 句祝福，一行一句</li>
         </ul>
       </div>
-      <button class="btn-speak" type="button" data-speak="lesson-intro">🔊 读给我听</button>
+      <button class="btn-speak" type="button" data-speak="lesson-goal,lesson-intro">🔊 读一读目标与开场</button>
     </header>
 
     <section class="story" id="lesson-intro">
@@ -81,7 +91,7 @@
       <p>今天要让电脑学的，就是这件事。你把要重复的那一行写一遍，告诉它重复几次，它替你跑完，一次也不会漏。</p>
     </section>
 
-    <section class="concepts" aria-label="这一课的知识点">
+    <section class="concepts" id="lesson-concepts" aria-label="这一课的知识点">
       <article class="concept">
         <span class="concept-num" aria-hidden="true">1</span>
         <h3>循环，是“同一件事，按规矩重复”</h3>
@@ -108,13 +118,15 @@
         <p>所以你会怎么做：先写一句你要重复的话，把它放进花括号，再用 <code>for</code> 把花括号管起来。</p>
         <div class="example"><strong>例子：</strong>动手区里那句 <code>console.log</code> 在花括号里，所以打印 5 次；要是把它挪到花括号外面，就只打印 1 次。</div>
       </article>
+    
+      <button class="btn-speak" type="button" data-speak="lesson-concepts">🔊 读一读知识卡</button>
     </section>
 
-    <aside class="mistake">
-      如果点了运行，结果里跳出一句“出错啦”，先看花括号：左边一个、右边一个，要成对。花括号漏了一个，电脑就不知道哪些行该重复，整段都会读不懂。它不是嫌你写得不好，它只是没看到结尾在哪儿。
+    <aside class="mistake" role="note">
+      如果点了运行，运行结果框里出现一行以 ❌ 开头的提示，先看花括号：左边一个、右边一个，要成对。花括号漏了一个，电脑就不知道哪些行该重复，整段都会读不懂。它不是嫌你写得不好，它只是没看到结尾在哪儿。
     </aside>
 
-    <aside class="tip">改的时候一次只动一处：先只改数字，看行数变没变；再改引号里的话。两处一起改，结果不对的时候，你就不知道是哪一处的问题了。</aside>
+    <aside class="tip" aria-label="小提示">改的时候一次只动一处：先只改数字，看行数变没变；再改引号里的话。两处一起改，结果不对的时候，你就不知道是哪一处的问题了。</aside>
 
     <section class="playground" data-playground="js" aria-label="动手试一试">
       <div class="pg-head">
@@ -137,11 +149,14 @@ for (let i = 1; i <= 5; i++) {
       <p class="pg-status" role="status"></p>
     </section>
 
-    <aside class="mistake">
-      如果点了运行，输出框一直往下滚、整个页面像卡住了，别急——这是循环停不下来。最常见的两种写法：忘了写 <code>i++</code>，计数器一直停在 1；或者条件写成了永远成立的样子，比如 <code>i &gt;= 0</code>。电脑不是坏了，它只是太老实地照着你的话做。把这个页面关掉，重新打开，改回来就好。反过来，如果一行都没打印，看看条件是不是写反了，比如写成了 <code>i &gt;= 5</code>——第一遍就不成立，循环一次都没进去。
+    <aside class="mistake" role="note">
+      <p>如果点了运行，运行结果框一直往下滚、整个页面像卡住了，别急——这是循环停不下来。</p>
+      <p>最常见的两种写法：忘了写 <code>i++</code>，计数器一直停在 1；或者条件写成了永远成立的样子，比如 <code>i &gt;= 0</code>。</p>
+      <p>电脑不是坏了，它只是太老实地照着你的话做。把这个页面关掉，重新打开，改回来就好。</p>
+      <p>反过来，如果一行都没打印，看看条件是不是写反了，比如写成了 <code>i &gt;= 5</code>——第一遍就不成立，循环一次都没进去。</p>
     </aside>
 
-    <section class="task" aria-label="小任务">
+    <section class="task" id="lesson-task" aria-label="小任务">
       <h3>今天的小任务</h3>
       <p>让电脑连续打印 10 句祝福，一行一句，一句都别漏。</p>
       <ol>
@@ -153,6 +168,8 @@ for (let i = 1; i <= 5; i++) {
         <li>我数到了 10 行，最后一行前面的数字是 10。</li>
         <li>我只写了一句祝福，电脑却说了 10 遍。</li>
       </ul>
+    
+      <button class="btn-speak" type="button" data-speak="lesson-task">🔊 读一读今天的小任务</button>
     </section>
 
     <section class="quizzes" aria-label="小测验">
@@ -164,7 +181,7 @@ for (let i = 1; i <= 5; i++) {
         <div class="quiz-options">
           <button class="quiz-opt" type="button" data-correct="true">把同一件事重复做很多遍，代码只写一遍</button>
           <button class="quiz-opt" type="button" data-correct="false">让电脑一次同时做很多件事</button>
-          <button class="quiz-opt" type="button" data-correct="false">让页面变慢，方便看清楚每一步</button>
+          <button class="quiz-opt" type="button" data-correct="false">把同一行代码复制十遍，就能让它重复十遍</button>
         </div>
         <p class="quiz-feedback" role="status" data-ok="循环替你重复。你要做的只是说清楚：重复哪一行、重复几遍。" data-no="想想抄通讯录：第 3 页和第 30 页，你做的事有区别吗？"></p>
       </div>
@@ -190,13 +207,14 @@ for (let i = 1; i <= 5; i++) {
       </div>
     </section>
 
-    <section class="recap" aria-label="这一课的三句话">
+    <section class="recap" id="lesson-recap" aria-label="这一课的三句话">
       <h3>用三句话记住这一课</h3>
       <ul>
         <li>重复的事交给循环：写一遍，跑很多遍。</li>
         <li><code>for</code> 一行管三件事：从几开始、到几停、每遍加多少；<code>i++</code> 就是加一。</li>
         <li>要重复的代码放进花括号里，花括号外面的只做一次。</li>
       </ul>
+          <button class="btn-speak" type="button" data-speak="lesson-recap">🔊 读一读这三句话</button>
     </section>
 
     <nav class="lesson-nav" aria-label="课程导航">
@@ -218,7 +236,7 @@ for (let i = 1; i <= 5; i++) {
             <span class="brand-mark" aria-hidden="true">她</span>
             <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
           </a>
-          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15 分钟，不用背，只要动手改一改。</p>
+          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15–25 分钟，不用背，只要动手改一改。</p>
         </div>
         <div class="footer-col">
           <h3>课程</h3>

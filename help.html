@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>帮助、无障碍与常见问题｜她学编程</title>
   <meta name="description" content="她学编程的帮助页：无障碍说明、阅读设置怎么用、学习进度存在哪里、常见问题解答。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="她学编程">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="帮助、无障碍与常见问题｜她学编程">
+  <meta property="og:description" content="她学编程的帮助页：无障碍说明、阅读设置怎么用、学习进度存在哪里、常见问题解答。">
+  <meta property="og:url" content="https://jarrettchen888.github.io/ta-xue-biancheng/help.html">
+  <meta property="og:image" content="https://jarrettchen888.github.io/ta-xue-biancheng/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#faf5ee">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="assets/styles.css">
@@ -68,12 +78,12 @@
       <ul>
         <li><strong>字号</strong>：正文默认 20 像素，比大多数网站大；可以再放大到 25 像素，所有文字和按钮会一起变大，不会挤坏版式。</li>
         <li><strong>对比度</strong>：浅色和深色两套配色都达到 WCAG 2.2 AA 级以上的文字对比度，正文尽量接近 AAA 级。</li>
-        <li><strong>朗读</strong>：课程页有“🔊 读给我听”，用浏览器自带的中文语音朗读故事，按 Esc 随时停止。</li>
+        <li><strong>朗读</strong>：课程页有“🔊 读一读目标与开场”“🔊 读一读这三句话”，知识卡和小任务也能单独读。用的是浏览器自带的中文语音，按 Esc 随时停止。</li>
         <li><strong>键盘操作</strong>：所有按钮和链接都能用 Tab 键到达，Enter 或空格确认；页面顶部第一个可聚焦元素是“跳到正文”。</li>
         <li><strong>焦点可见</strong>：用键盘移动时，当前元素有 3 像素的蓝色描边，不会跟丢。</li>
         <li><strong>减少动画</strong>：页面右上角可一键减少动画；如果你的系统设置了“减少动态效果”，网站会自动尊重这个设置。</li>
         <li><strong>深色模式</strong>：右上角 ☾ 按钮切换，适合晚上或对强光敏感的人。</li>
-        <li><strong>结构清晰</strong>：标题层级、地标区域、表单标签、按钮状态都对屏幕阅读器友好；图片都有替代文字，装饰性图案对读屏隐藏。</li>
+        <li><strong>结构清晰</strong>：标题层级、地标区域、表单标签、按钮状态都对屏幕阅读器友好；装饰性图案对读屏隐藏。</li>
         <li><strong>不依赖颜色</strong>：答对答错除了颜色，还会用 ✓ / × 和文字说明表示。</li>
         <li><strong>没有时限</strong>：没有倒计时、没有自动播放，所有内容都由你点击才开始。</li>
       </ul>
@@ -84,7 +94,7 @@
         <li>朗读没有声音：先检查系统音量和浏览器是否被静音；Safari 和 Chrome 对中文语音的支持最好。</li>
         <li>用屏幕阅读器：页面使用语义化标签和 ARIA 标注，建议从“跳到正文”开始。</li>
       </ul>
-      <aside class="note">我们知道自己还做不到完美。如果你遇到用不了的地方，请把具体是哪一页、哪个操作告诉带你来的家人或朋友，让他们转达。这个站没有后台，不会自动收集你的任何信息。</aside>
+      <aside class="note" aria-label="说明">我们知道自己还做不到完美。如果你遇到用不了的地方，请把具体是哪一页、哪个操作告诉带你来的家人或朋友，让他们转达。这个站没有后台，不会自动收集你的任何信息。</aside>
     </section>
 
     <section id="settings" aria-labelledby="settings-title">
@@ -136,7 +146,7 @@
         </details>
         <details>
           <summary>点了“运行看看”，结果没变化怎么办？</summary>
-          <p>先看运行结果下面那行提示；如果提示你已经运行了，可能是改的内容不影响显示（比如改的是注释）。也可以点“恢复原样”，再从最小的一处改起。刷新页面会重置练习区，不会影响你的学习进度。</p>
+          <p>先看运行结果框里有没有以 ❌ 开头的提示；如果只是显示“已经运行了”，可能是改的内容不影响显示（比如改的是注释）。也可以点“恢复原样”，再从最小的一处改起。你在练习区的改动会自动存在这台电脑的浏览器里，刷新或关掉再回来还在（点“恢复原样”会清掉草稿），也不会影响你的学习进度。</p>
         </details>
         <details>
           <summary>改坏了代码怎么办？</summary>
@@ -179,7 +189,7 @@
             <span class="brand-mark" aria-hidden="true">她</span>
             <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
           </a>
-          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15 分钟，不用背，只要动手改一改。学得慢一点，也没关系。</p>
+          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15–25 分钟，不用背，只要动手改一改。学得慢一点，也没关系。</p>
         </div>
         <div class="footer-col">
           <h3>课程</h3>

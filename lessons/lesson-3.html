@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>第 3 课 · 给信息取个名字：变量｜她学编程</title>
   <meta name="description" content="用变量给姓名和年龄取个名字存起来，让电脑把存好的信息说给你听，再弄清英文引号的用法。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="她学编程">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="第 3 课 · 给信息取个名字：变量｜她学编程">
+  <meta property="og:description" content="用变量给姓名和年龄取个名字存起来，让电脑把存好的信息说给你听，再弄清英文引号的用法。">
+  <meta property="og:url" content="https://jarrettchen888.github.io/ta-xue-biancheng/lessons/lesson-3.html">
+  <meta property="og:image" content="https://jarrettchen888.github.io/ta-xue-biancheng/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#faf5ee">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="stylesheet" href="../assets/styles.css">
@@ -32,7 +42,7 @@
         <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
       </a>
       <nav class="site-nav" aria-label="主导航">
-        <a href="../index.html#course" aria-current="true">课程</a>
+        <a href="../index.html#course" aria-current="page">课程</a>
         <a href="../start.html">怎么学</a>
         <a href="../help.html">帮助与无障碍</a>
       </nav>
@@ -71,7 +81,7 @@
           <li>会用 console.log 让电脑把存好的信息说给你听</li>
         </ul>
       </div>
-      <button class="btn-speak" type="button" data-speak="lesson-intro">🔊 读给我听</button>
+      <button class="btn-speak" type="button" data-speak="lesson-goal,lesson-intro">🔊 读一读目标与开场</button>
     </header>
 
     <section class="story" id="lesson-intro">
@@ -82,12 +92,12 @@
       <p>电脑里也有这样的通讯录，它叫“变量”。今天只学一件小事：给一段信息取个名字，再让电脑把它说给你听。</p>
     </section>
 
-    <section class="concepts" aria-label="这一课的知识点">
+    <section class="concepts" id="lesson-concepts" aria-label="这一课的知识点">
       <article class="concept">
         <span class="concept-num" aria-hidden="true">1</span>
         <h3>变量，是一个贴了标签的收纳盒</h3>
         <p>搬家的时候，你把零碎东西分装进盒子，每个盒子外面贴一张纸条：药、票据、针线。以后要找什么，看纸条，开那个盒子。</p>
-        <p>变量就是这个盒子。你把一份信息放进去，再贴一个名字。名字由你取，只用英文小写字母，像 name、age、city。</p>
+        <p>把手机里的通讯录，想成一个贴了名字的盒子：想找谁，看纸条，开那个盒子。变量就是这个盒子。你把一份信息放进去，再贴一个名字。名字由你取。用英文小写字母最稳妥，像 name、age、city；中文名字也能用，第 4 课你会见到。</p>
         <p>写法是 <code>let 名字 = 值;</code>。这里的等号不是数学里的“等于”，它的意思是“放进去”。</p>
         <div class="example"><strong>例子：</strong><code>let name = "秀兰";</code> 就是拿一个盒子，贴上 name 的标签，把“秀兰”两个字放进去。</div>
       </article>
@@ -105,13 +115,15 @@
         <span class="concept-num" aria-hidden="true">3</span>
         <h3>console.log，让电脑说给你听</h3>
         <p>信息存好了，怎么知道它真的在盒子里？用 console.log，它就是“让电脑说给你听”。</p>
-        <p>把想说的放进括号里，点运行，下面的输出框就会显示出来。括号里可以放一句带引号的话，也可以放一个变量。</p>
+        <p>把想说的放进括号里，点运行，下面的运行结果框就会显示出来。括号里可以放一句带引号的话，也可以放一个变量。</p>
         <p>还能把几段文字接起来：<code>"你好，" + name</code>，中间那个加号，意思是把前后两段连成一段。</p>
-        <div class="example"><strong>例子：</strong><code>console.log("你好，" + name);</code> 输出框里会显示：你好，秀兰。</div>
+        <div class="example"><strong>例子：</strong><code>console.log("你好，" + name);</code> 运行结果框里会显示：你好，秀兰。</div>
       </article>
+    
+      <button class="btn-speak" type="button" data-speak="lesson-concepts">🔊 读一读知识卡</button>
     </section>
 
-    <aside class="tip">变量名只用英文字母，不加引号，也不加空格。名字写错一个字母，电脑就不认识它了——它不会猜你想说的是什么。</aside>
+    <aside class="tip" aria-label="小提示">变量名用英文字母最稳妥，不加引号，也不加空格。名字写错一个字母，电脑就不认识它了——它不会猜你想说的是什么。（中文名字也能用，第 4 课你会见到。）</aside>
 
     <section class="playground" data-playground="js" aria-label="动手试一试">
       <div class="pg-head">
@@ -135,11 +147,11 @@ console.log("我今年 " + age + " 岁。");</textarea>
       <p class="pg-status" role="status"></p>
     </section>
 
-    <aside class="mistake">
-      如果输出框里冒出一句“出错啦：……”，先别慌。数一数引号：左右是不是一对英文引号 <code>"</code>；有没有打成中文的 <code>“”</code>；有没有哪一行忘了写结尾那一半。电脑分不清中英文里长得像的双引号，它只认英文的那一对。
+    <aside class="mistake" role="note">
+      如果运行结果框里出现一行以 ❌ 开头的提示，先别慌——它会把英文报错翻成人话，提醒你哪里可能写错了。数一数引号：左右是不是一对英文引号 <code>"</code>；有没有打成中文的 <code>“”</code>；有没有哪一行忘了写结尾那一半。电脑分不清中英文里长得像的双引号，它只认英文的那一对。
     </aside>
 
-    <section class="task" aria-label="小任务">
+    <section class="task" id="lesson-task" aria-label="小任务">
       <h3>今天的小任务</h3>
       <p>把这段代码换成你自己的信息，再让电脑多说一句话。</p>
       <ol>
@@ -148,9 +160,11 @@ console.log("我今年 " + age + " 岁。");</textarea>
         <li>在最下面再写一行 <code>console.log(...)</code>，打印一句你想说的话，点运行。</li>
       </ol>
       <ul class="checklist">
-        <li>深色输出框里，出现了我的名字和年龄。</li>
-        <li>我新加的那句话也打印出来了，没有出现“出错啦”。</li>
+        <li>深色的运行结果框里，出现了我的名字和年龄。</li>
+        <li>我新加的那句话也打印出来了，没有出现 ❌ 开头的提示。</li>
       </ul>
+    
+      <button class="btn-speak" type="button" data-speak="lesson-task">🔊 读一读今天的小任务</button>
     </section>
 
     <section class="quizzes" aria-label="小测验">
@@ -188,13 +202,14 @@ console.log("我今年 " + age + " 岁。");</textarea>
       </div>
     </section>
 
-    <section class="recap" aria-label="这一课的三句话">
+    <section class="recap" id="lesson-recap" aria-label="这一课的三句话">
       <h3>用三句话记住这一课</h3>
       <ul>
         <li>变量是贴了名字的收纳盒：<code>let name = "秀兰";</code>，等号的意思是“放进去”。</li>
         <li>文字要加英文引号，数字不用；变量名不加引号，也不加空格。</li>
         <li>console.log(...) 让电脑把括号里的内容说给你听，加号能把几段文字接起来。</li>
       </ul>
+          <button class="btn-speak" type="button" data-speak="lesson-recap">🔊 读一读这三句话</button>
     </section>
 
     <nav class="lesson-nav" aria-label="课程导航">
@@ -216,7 +231,7 @@ console.log("我今年 " + age + " 岁。");</textarea>
             <span class="brand-mark" aria-hidden="true">她</span>
             <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
           </a>
-          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15 分钟，不用背，只要动手改一改。</p>
+          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15–25 分钟，不用背，只要动手改一改。</p>
         </div>
         <div class="footer-col">
           <h3>课程</h3>

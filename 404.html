@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>这个页面没有找到｜她学编程</title>
+  <meta name="description" content="这个地址没有对应的页面。回到首页，或者从第 0 课重新开始。">
+  <meta name="theme-color" content="#faf5ee">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script>
+    (function () {
+      try {
+        var s = JSON.parse(localStorage.getItem("hx.settings") || "{}");
+        var root = document.documentElement;
+        var sizes = [18, 20, 22, 25];
+        root.style.fontSize = (sizes[s.font] || 20) + "px";
+        root.setAttribute("data-theme", s.theme || (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+        if (s.motion) root.setAttribute("data-motion", s.motion);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">她</span>
+        <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="index.html#course">课程</a>
+        <a href="start.html">怎么学</a>
+        <a href="help.html">帮助与无障碍</a>
+      </nav>
+      <div class="ctrl-group" role="group" aria-label="阅读设置">
+        <button class="ctrl" type="button" data-font="down" aria-label="A− 缩小字号" title="缩小字号">A−</button>
+        <button class="ctrl" type="button" data-font="up" aria-label="A＋ 放大字号" title="放大字号">A＋</button>
+        <button class="ctrl" type="button" data-theme-toggle aria-label="☾ 切换深色模式" aria-pressed="false" title="深色模式">☾</button>
+        <button class="ctrl" type="button" data-motion-toggle aria-label="✳ 减少动画效果" aria-pressed="false" title="减少动画">✳</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="wrap reading">
+    <div class="section-tight">
+      <p class="label">页面没有找到</p>
+      <h1>这一步，走岔了</h1>
+      <p class="lede">这个地址没有对应的页面。可能是链接打错了一个字，也可能是页面挪了位置。</p>
+      <p>没关系，不用往回找。下面这几个地方，随便挑一个：</p>
+      <div class="cta-row">
+        <a class="btn btn-primary btn-lg" href="index.html">回到首页</a>
+        <a class="btn btn-ghost btn-lg" href="index.html#course">看看全部 7 课</a>
+        <a class="btn btn-ghost btn-lg" href="lessons/lesson-0.html">直接开始第 0 课</a>
+      </div>
+      <aside class="tip" style="margin-top:2rem">如果你是从家人发来的链接点进来的，可以把这一段话告诉他：链接里可能多了一个空格，或者少了一个字母。</aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-bottom">
+        <span>她学编程 · 一个不需要注册、不收集你信息的公益学习站</span>
+        <span>学得慢一点，也没关系。</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

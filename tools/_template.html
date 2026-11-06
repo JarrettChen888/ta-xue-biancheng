@@ -40,7 +40,7 @@
         <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
       </a>
       <nav class="site-nav" aria-label="主导航">
-        <a href="../index.html#course" aria-current="true">课程</a>
+        <a href="../index.html#course" aria-current="page">课程</a>
         <a href="../start.html">怎么学</a>
         <a href="../help.html">帮助与无障碍</a>
       </nav>
@@ -80,7 +80,7 @@
           <li>【【具体能力 3】】</li>
         </ul>
       </div>
-      <button class="btn-speak" type="button" data-speak="lesson-intro">🔊 读给我听</button>
+      <button class="btn-speak" type="button" data-speak="lesson-goal,lesson-intro">🔊 读一读目标与开场</button>
     </header>
 
     <!-- ========== 2. 生活故事（150-250 字，先共情再讲知识） ========== -->
@@ -109,7 +109,7 @@
     </section>
 
     <!-- 可选：小贴士 / 说明 / 常见卡点，按需使用（最多两个） -->
-    <aside class="tip">【【一个能救命的实操提醒，例如“改完一定要点运行”】】</aside>
+    <aside class="tip" aria-label="小提示">【【一个能救命的实操提醒，例如“改完一定要点运行”】】</aside>
 
     <!-- ========== 4. 动手区 ==========
       data-playground="html" → 下面文本框里写 HTML/CSS，会实时显示成网页
@@ -188,13 +188,14 @@
     </section>
 
     <!-- ========== 7. 三句话回顾 ========== -->
-    <section class="recap" aria-label="这一课的三句话">
+    <section class="recap" id="lesson-recap" aria-label="这一课的三句话">
       <h3>用三句话记住这一课</h3>
       <ul>
         <li>【【要点 1】】</li>
         <li>【【要点 2】】</li>
         <li>【【要点 3】】</li>
       </ul>
+          <button class="btn-speak" type="button" data-speak="lesson-recap">🔊 读一读这三句话</button>
     </section>
 
     <!-- ========== 8. 底部导航（首课删掉“上一课”，末课下一课指到结业作品） ========== -->
@@ -218,7 +219,7 @@
             <span class="brand-mark" aria-hidden="true">她</span>
             <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
           </a>
-          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15 分钟，不用背，只要动手改一改。</p>
+          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15–25 分钟，不用背，只要动手改一改。</p>
         </div>
         <div class="footer-col">
           <h3>课程</h3>

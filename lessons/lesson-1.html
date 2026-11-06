@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>第 1 课 · 让网页上出现你的字｜她学编程</title>
   <meta name="description" content="认识 HTML 标签：用 h1 做大标题、用 p 写段落，亲手把名字和两句话放上网页，做出你的第一个自我介绍页面。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="她学编程">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="第 1 课 · 让网页上出现你的字｜她学编程">
+  <meta property="og:description" content="认识 HTML 标签：用 h1 做大标题、用 p 写段落，亲手把名字和两句话放上网页，做出你的第一个自我介绍页面。">
+  <meta property="og:url" content="https://jarrettchen888.github.io/ta-xue-biancheng/lessons/lesson-1.html">
+  <meta property="og:image" content="https://jarrettchen888.github.io/ta-xue-biancheng/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#faf5ee">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="stylesheet" href="../assets/styles.css">
@@ -32,7 +42,7 @@
         <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
       </a>
       <nav class="site-nav" aria-label="主导航">
-        <a href="../index.html#course" aria-current="true">课程</a>
+        <a href="../index.html#course" aria-current="page">课程</a>
         <a href="../start.html">怎么学</a>
         <a href="../help.html">帮助与无障碍</a>
       </nav>
@@ -71,7 +81,7 @@
           <li>让网页上出现你的名字和两句自我介绍</li>
         </ul>
       </div>
-      <button class="btn-speak" type="button" data-speak="lesson-intro">🔊 读给我听</button>
+      <button class="btn-speak" type="button" data-speak="lesson-goal,lesson-intro">🔊 读一读目标与开场</button>
     </header>
 
     <section class="story" id="lesson-intro">
@@ -81,7 +91,7 @@
       <p>今天只学这一件小事：给文字贴标签，让它变成标题和段落。</p>
     </section>
 
-    <section class="concepts" aria-label="这一课的知识点">
+    <section class="concepts" id="lesson-concepts" aria-label="这一课的知识点">
       <article class="concept">
         <span class="concept-num" aria-hidden="true">1</span>
         <h3>标签，是给文字套上的一件外套</h3>
@@ -106,9 +116,11 @@
         <p>想新起一段，就再写一组 <code>&lt;p&gt;</code> 和 <code>&lt;/p&gt;</code>，把新的一句话放进去。</p>
         <div class="example"><strong>例子：</strong>两句话写成两组 p，页面上就是两段；塞进同一组 p 里，两句话就挤在同一段。</div>
       </article>
+    
+      <button class="btn-speak" type="button" data-speak="lesson-concepts">🔊 读一读知识卡</button>
     </section>
 
-    <aside class="tip">写标签的小习惯：先把 <code>&lt;h1&gt;&lt;/h1&gt;</code> 这一对写好，再把字打进中间。这样不容易漏掉结尾，改起来也快。</aside>
+    <aside class="tip" aria-label="小提示">写标签的小习惯：先把 <code>&lt;h1&gt;&lt;/h1&gt;</code> 这一对写好，再把字打进中间。这样不容易漏掉结尾，改起来也快。<br><br>打字之前，先按一下 <strong>Shift</strong> 键，把输入法切到英文（屏幕右下角会显示“英”）。<code>&lt;</code> 是 <strong>Shift＋逗号</strong>，<code>&gt;</code> 是 <strong>Shift＋句号</strong>，<code>/</code> 是问号键左边那个。切错了也没关系，删掉重打就好。</aside>
 
     <section class="playground" data-playground="html" aria-label="动手试一试">
       <div class="pg-head">
@@ -129,22 +141,24 @@
       <p class="pg-status" role="status"></p>
     </section>
 
-    <aside class="mistake">
-      如果你看到页面上直接冒出了 <code>&lt;h1&gt;</code> 这几个字，那不是你笨。多半是哪个尖括号少了一半，或者把 h1 写成了 hl——h 后面是数字 1，不是字母 l，这两个长得太像了。还有一种情况：标题下面的字全都变得又大又粗，那是结束标签漏写了。<code>&lt;h1&gt;</code> 开了头，就得用 <code>&lt;/h1&gt;</code> 收尾。
+    <aside class="mistake" role="note">
+      如果你打出来的是 <code>《</code> 或 <code>》</code>，那是输入法还在中文状态，不是你打错了——按一下 Shift 键切回英文，再打一次。<br><br>如果你看到页面上直接冒出了 <code>&lt;h1&gt;</code> 这几个字，那不是你笨。多半是哪个尖括号少了一半，或者把 h1 写成了 hl——h 后面是数字 1，不是字母 l，这两个长得太像了。还有一种情况：标题下面的字全都变得又大又粗，那是结束标签漏写了。<code>&lt;h1&gt;</code> 开了头，就得用 <code>&lt;/h1&gt;</code> 收尾。
     </aside>
 
-    <section class="task" aria-label="小任务">
+    <section class="task" id="lesson-task" aria-label="小任务">
       <h3>今天的小任务</h3>
       <p>做一个属于你自己的“我的自我介绍”网页：一行大标题写名字，两句自己的话写在下面。</p>
       <ol>
         <li>把标题里的 ＿＿＿＿ 换成你的名字，点一下“运行看看”。</li>
         <li>把第一段里那两个空填上：住哪儿，喜欢什么。</li>
-        <li>在下面再添一组 <code>&lt;p&gt;</code> 和 <code>&lt;/p&gt;</code>，写第二句话，再运行一次。</li>
+        <li>在下面再添一组 <code>&lt;p&gt;</code> 和 <code>&lt;/p&gt;</code>，写第二句话，再运行一次。打这两个标签之前，先按一下 Shift 键切到英文。</li>
       </ol>
       <ul class="checklist">
         <li>运行结果最上面是我的名字，字比别处大。</li>
         <li>我写的两句话分成了两段，中间有空隙，没有挤在一起。</li>
       </ul>
+    
+      <button class="btn-speak" type="button" data-speak="lesson-task">🔊 读一读今天的小任务</button>
     </section>
 
     <section class="quizzes" aria-label="小测验">
@@ -182,13 +196,14 @@
       </div>
     </section>
 
-    <section class="recap" aria-label="这一课的三句话">
+    <section class="recap" id="lesson-recap" aria-label="这一课的三句话">
       <h3>用三句话记住这一课</h3>
       <ul>
         <li>标签是给文字套的外套：开始标签开头，结束标签多一条斜杠收尾，要成对出现。</li>
         <li>h1 管大标题，p 管段落；要几段，就写几组 p。</li>
         <li>想换行，靠另写一个段落，不靠按回车。</li>
       </ul>
+          <button class="btn-speak" type="button" data-speak="lesson-recap">🔊 读一读这三句话</button>
     </section>
 
     <nav class="lesson-nav" aria-label="课程导航">
@@ -210,7 +225,7 @@
             <span class="brand-mark" aria-hidden="true">她</span>
             <span class="brand-text">她学编程<em>慢慢来，学得会</em></span>
           </a>
-          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15 分钟，不用背，只要动手改一改。</p>
+          <p>一个写给 50 岁左右、从零开始的你的编程课。每天 15–25 分钟，不用背，只要动手改一改。</p>
         </div>
         <div class="footer-col">
           <h3>课程</h3>
